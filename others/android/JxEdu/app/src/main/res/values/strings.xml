@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">jx</string>
+    <string name="main_video">video</string>
+    <string name="main_book">book</string>
+    <string name="browser_name">browser name</string>
+    <string name="browser_back">back home</string>
+</resources>

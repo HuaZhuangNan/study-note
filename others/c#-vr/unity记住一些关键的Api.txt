@@ -1,0 +1,44 @@
+资源有关： 
+	1、Application.stremingAssetsPath;  //  unity项目根目录下的： StremingAsstes  不会编译的目录的一个路径（一般放视频资源）
+	2、Resources    // 动态加载资源目录(音频等资源)
+
+// 函数
+	1、Invoke(FunctionName,Time)  // 延迟调用   
+
+// 移动到特定位置
+	1、 this.transform.position = Vector3.MoveTowards(this.transform.position,target.position, MoveSpeed * Time.deltaTime);
+
+// 相机之前
+	1、this.transform.position = Vector3.MoveTowards(this.transform.position, (m_Camera.position + m_Camera.forward * 3), m_MoveSpeed * Time.deltaTime);
+
+// 旋转位置
+	1、this.transform.rotation = Quaternion.Lerp(this.transform.position, target.transform.rotation,RotatSpeed * Time.deltaTime);
+
+// 围绕某个物体某个轴旋转
+	1、 this.transform.RotateAround(target.position, this.transform.up, RotateSpeed * Time.deltaTime);
+
+// 闪烁
+	1、this.GetComponent<MeshRenderer>().enabled = !取反的
+
+// 镜头缩放
+	1、Camera.main.fieldOfView = Scale
+
+
+// 事件切换
+	1、单例
+	public static Only instance;
+    	void Awake () {
+        		instance = this;
+   	 }	
+
+// 触发函数
+
+// 视频、音频管理器
+
+// 状态管理器
+
+// 动画管理器
+
+// 关卡管理器
+
+

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+</head>
+<body>
+    <!-- 注册 -->
+    <form action="./regservlet" method="post">
+        <label>用户账号
+            <input type="text" name="name" value="" autofocus="autofocus" autocomplete="off" />
+        </label>
+        <label>用户密码
+            <input type="password" name="password" value="" autocomplete="off" />
+        </label>
+        <label>电子邮件
+            <input  id="notpass" type="text" name="email" value="" autocomplete="off" />
+        </label>
+        <label>出生日期
+            <input type="date" name="birthday" autocomplete="off">
+        </label>
+            <button type="submit">注册</button>
+        <a href="./login.html">已有账号点击登录</a>
+    </form>
+    <!-- /注册 -->
+</body>
+</html>

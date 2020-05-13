@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>品牌案例实现</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
+  <!-- 自定义样式 -->
+  <style>
+    input,select,button,a {outline:0 none !important;} /* 去点击边框  */
+    .alert {margin-bottom: 5px;}
+  </style>
+  <!-- 导入vu.js包 -->
+  <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+  <section id="app" class="table-responsive">
+    <!-- 错误警告框 -->
+    <div class="alert " :class="[ alertMsg.active ]"  v-show="alertMsg.flag">
+      <button type="button" class="close" @click="alertMsg.flag=false;">&times;</button>
+      <strong v-text="alertMsg.data.title"></strong><span v-text="alertMsg.data.body"></span>
+    </div>
+    <!-- 数据操作 -->
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">添加品牌</h3>
+      </div>
+      <div class="panel-body form-inline ">
+        <!-- 表单操作 -->
+        *<label>ID:
+          <input type="text" class="form-control" v-model="id"  placeholder="请输入ID">
+        </label>
+        *<label>Name:
+          <!-- vue提供了内置的键盘修饰符enter或按键码13 也可以自定义 -->
+          <input type="text" class="form-control" v-model="name" @keyup.enter="add"  placeholder="请输入Name">
+        </label>
+        <button type="button" class="btn btn-primary" @click="add" >添加</button>
+        <!-- 搜索操作 -->
+        <label>搜索关键字(支持所有属性):
+          <input type="text" class="form-control" v-model="keywords" v-focus placeholder="请输入关键字">
+        </label>
+      </div>
+    </div>
+    <!-- 数据表格 -->
+    <table class="table table-bordered table-hover table-striped">
+      <thead>
+        <th>ID:</th>
+        <th>Name</th>
+        <th>Ctime(创建时间)</th>
+        <th>Operation(操作)</th>
+      </thead>
+      <tbody>
+        <!-- 通过 search方法传入keywords关键字返回数组 -->
+        <tr v-for="item in search(keywords)" :key="item.id">
+          <td v-text="item.id"></td>
+          <td v-text="item.name"></td>
+          <td>{{item.ctime | dateFormat }}</td>
+          <!-- 加入小括号就可以传参了 -->
+          <td><button class="btn btn-default" @click="del(item.id)">删除</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- 时间 -->
+    <p v-color="'red'" v-fontsize="'20px'">自定义私有指令</p>
+  </section>
+  <!-- 入口文件 -->
+  <script src="./js/app.js"></script>
+</body>
+</html>

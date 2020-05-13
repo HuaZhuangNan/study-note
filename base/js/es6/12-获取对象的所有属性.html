@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>获取对象属性</title>
+</head>
+<body>
+  <script>
+  //  Object.keys();  获取不到原型属性,只可以获取自身枚举属性
+  function Person(){
+    this.name ="张三",
+    this.age=18 
+  };
+  Person.prototype.length =100;
+  const p1 = new Person();
+  // 返回一个自身属性数组
+  Object.keys(p1).forEach((value,index)=>{
+    console.log(value,index);
+  });
+  // for in 可以 获取自身属性
+  for(let k in p1){
+    //console.log(k);
+    if(p1.hasOwnProperty(k)){
+      console.log(`自身属性：${k}`);// 只能打印自身的属性
+    }else {
+      console.log(`原型属性：${k}`);// 只能打印自身的属性
+    }
+  }
+  </script>
+</body>
+</html>

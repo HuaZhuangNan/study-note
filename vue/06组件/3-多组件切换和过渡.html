@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件切换</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+  <style>
+   /* v-enter 【一个时间点】 是元素在进入之前的起始状态，此时还没有开始进入 */
+    /* v-leave-to 【是一个时间点】 是动画离开之后的最终状态 */
+    .v-enter, 
+    .v-leave-to { 
+      opacity: 0;
+    }
+    /* v-enter 【入场时间段】 是元素在进入之前的起始状态，此时还没有开始进入 */
+    /* v-leave-to 【离场动画时间段】是动画离开之后的最终状态 */
+    .-v-enter-active,
+    .v-leave-active {
+      transition: opacity .3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <a href="" @click.prevent="comName='login'">登录</a>
+    <a href="" @click.prevent="comName='register'">注册</a>
+    <a href="" @click.prevent="comName='forget'">忘记密码</a>
+    <!-- vue 提供了 component 来展示对应组件名字 '' -->
+    <!-- mode 属性实现切换方式 -->
+    <transition mode="out-in"> 
+      <component :is="comName"></component>
+    </transition>
+  </div>
+  <script>
+    // 2.1 创建组件
+    Vue.component("login",{
+      template: '<h3>登录组件</h3>'
+    })
+    Vue.component("register",{
+      template: '<h3>注册组件</h3>'
+    })
+    Vue.component("forget",{
+      template: '<h3>找回组件</h3>'
+    })
+
+
+    // 2.2 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        comName: 'login' // 组件名字
+      },
+      methods: {
+        
+      }
+    })
+  </script>
+</body>
+</html>

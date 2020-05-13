@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>箭头函数</title>
+</head>
+<body>
+  <button type="button">点我</button>
+  <script>
+    var buttons = document.getElementsByTagName("button");
+    // 无参的匿名函数
+    buttons[0].onclick= ()=>{
+      console.log(buttons);
+    };
+    // 有一个默认参数的函数
+    var fn = function(name="陌"){
+      console.log(name);
+    };
+    //等价于：
+    var fn= name=>{
+      console.log(name);
+    };
+    //也等价于
+    var fn = (name)=>{
+      console.log(name);
+    };
+    // 有参的匿名函数
+    var q = (name,age)=>{
+      // ...body
+    };
+    // 代码清晰不少
+    var students = ["小李","张三"];
+    students.forEach((value,index)=>{
+      if(index === 0){
+        console.log("打印开始！");
+      }
+      console.log(`value的值：${value}index的值：${index}`);
+      if(index === (students.length-1)){
+        console.log("打印结束！");
+      }
+    });
+
+    // 总结：
+    /*
+     箭头函数和普通匿名函数的不同(取决于函数的定义) 没有特定作用域
+     1.函数体内的 this对象，就是定义所在的对像，而不是所在的对象
+     2.不可以当 作构造函数，也就是不可以使用 new 命令 否者抛错
+     3.不可以使用 arguments ,可以使用 rest 参数(...rest)代替
+     4.(不常用)不可以使用 yieid 命令，因此箭头函数不能用作 Generator 函数(经常用async替代)
+    */
+
+    // 例1：
+    var p = {
+      arg:18,
+      // ea6 中对象方法的箭头函数表示形式
+      run:()=>{
+        setTimeout(()=>{
+          // this: window 对象
+          console.log(`this的值: ${this}`);
+        },500);
+      },
+      travel: function(){
+        setTimeout(()=>{
+          // this: p 对象
+          console.log(`this的值: ${this}`);
+        },1000);
+      },
+      // es6 简写方式 推荐使用 *****
+      say(){
+        setTimeout(()=>{
+          // this: p 对象
+          console.log(`this的值: ${this}`);
+        },1500);
+      }
+    };
+    p.run();
+    p.travel();
+    p.say();
+
+    // 指向 window
+    </script>
+</body>
+</html>

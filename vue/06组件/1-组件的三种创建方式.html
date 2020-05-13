@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>创建组件</title>
+  <!-- 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 引入自定义组件(驼峰命名大写之间需要换成小写并且中间添加横线链接) -->
+    <my-coml></my-coml>
+    <mycoml2></mycoml2>
+    <mycoml3></mycoml3>
+    <login></login>
+  </div>
+  <template id="tmp1">
+    <div>
+      <h1> 这是通过 themplate 元素,在外部定义组件结构，具有代码智能提示和高亮 </h1>
+      <h4> 好用,不错 </h4>
+    </div>
+  </template>
+  <script>
+    // PS: template 有且只有唯一一个根元素(标签)
+    // 1.1 使用 Vue.extend 创建 全局的组件
+    var coml = Vue.extend({
+      // 指定HTML结构
+      template: "<h3>这是用 Vue.extend 创建的组件</h3>"
+    })
+    // 1.2 使用 Vue.component("组件名称",创建出来的模板对象)
+    Vue.component("myComl" ,coml);
+
+    // 直接使用 Vue.component("名字",{}) 创建组件
+    Vue.component("mycoml2", {
+      template: "<h3>这是用 Vue.component 直接创建的组件</h3>"
+    })
+
+    // 控制 html 中的模板
+    Vue.component("mycoml3", {
+      template: "#tmp1"
+    })
+
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app', // 节点
+      data: {
+        
+      }, // 数据
+      methods: {
+        
+      }, // 事件
+      filters: {}, // 过滤器
+      directives: {},//指令
+      components: {
+        login: {
+          template: '<div><h2>这是一个私有的 login 组件，<span v-text="msg"></span></h2>\
+            组件的可以用自己的方法<button type="button" @click="add">加1</button><span v-text="count"></span></div>',
+          data: function(){  // 组件的可以用自己的 data 数据
+            return {
+              msg : '组件自己的数据',
+              count: 0
+            }
+          },
+          methods: {
+            add(){
+              this.count++;
+            }
+          }
+        }
+      }, //私有的组件
+      
+
+      // 生命周期
+      beforeCreate(){}, // data event 还未初始化
+      created(){}, // data event 初始化完成
+      beforeMount(){}, // 模板渲染之前
+      mounten(){}, // 模板更新时
+      updated(){}, // 数据更新时
+      beforeDestroy(){}, //实例销毁前
+      destroyed(){} // 实例销毁时
+
+    })
+  </script>
+</body>
+</html>

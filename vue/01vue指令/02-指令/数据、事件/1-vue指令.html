@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue指令</title>
+  <style>
+    [v-cloak] {
+      /* 未编译的 Mustache 标签直到实例准备完毕前的样式。 */
+      display: none;
+    }
+  </style>
+  <!-- 1. 导包 -->
+  <script src="../../../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+
+    <!-- v-cloak 能够解决 插值表达式 ;(闪烁问题,不会覆盖元素中原本的内容) -->
+    <p v-cloak>+++ {{ msg1 }} ---</p>
+    <!-- 等价于 (没有闪烁问题,会覆盖元素中原本的内容) -->
+    <p v-text="msg2" >---</p>
+    <!-- 解析html标签 (没有闪烁问题,会覆盖元素中原本的内容) -->
+    <p v-html="msg3" >---</p>
+
+    <!-- 通过v-bind绑定属性的指令  class、style 等.... -->
+    <input type="button" value="按钮" v-bind:title="mytitle">
+    <!-- 缩写 -->
+    <img :src="'/path/to/images/' + imgName">
+
+    <!-- 通过v-on绑定事件的指令-->
+    <button  v-on:click="doThis1">v-on指令</button>
+    <!-- 缩写 -->
+    <button @click="doThis1">v-on指令缩写</button>
+    <!-- 回调一次 -->
+    <button @click.once="doThis2">只调用一次</button>
+
+    <!-- ... 等等 详情 vue api https://cn.vuejs.org/v2/api/#指令 -->
+  </div>
+  <script>
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        msg1: "<b>插值表达式有闪烁问题，但不会覆盖内容</b>",
+        msg2: "<b>v-text指令(就是textContent替换内容块)</b>",
+        msg3: "<b>v-html指令(就是innerHTML替换内容块)</b>",
+        mytitle: "<b>我是通过v-bind指令绑定的</b>",
+        imgName: "img.jpg"
+      },
+      methods: {
+        doThis1(e) {
+          console.log(e);
+        },
+        doThis2(){
+          console.log("只执行一次");
+        }
+      },
+    })
+  </script>
+</body>
+</html>

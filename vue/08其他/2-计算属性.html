@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="firstname"> + 
+    <input type="text" v-model="middlename"> + 
+    <input type="text" v-model="lastname"> =
+    <input type="text" v-model="fullname">
+
+    <!-- 这个是缓存里最新的值, 如果缓存没有值就会计算一次-->
+    <p v-text="fullname"></p>
+  </div>
+  <script>
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        firstname: '',
+        lastname: '',
+        middlename: ''
+      },
+      methods: {
+        
+      },
+      computed: { 
+        // 计算属性 其实就是一个方法，只不过名称我们是当属性使用的
+        // 注意：1.计算属性调用时不需要加小括号，直接当成普通属性就好
+        // 2.只要计算属性类 function 中任何 data数据 发生变化就会重新计算
+        // 3.计算属性的求值结果会缓存起来如果没有变化就不会从新求值
+        'fullname': function () {
+          console.log("log")
+          return this.fullname = this.firstname +'-'+ this.middlename +'-'+ this.lastname;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

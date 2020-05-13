@@ -1,0 +1,40 @@
+[mysqld]
+port=3306
+basedir=D:\java\mysql-8.0.13-winx64
+datadir=D:\java\mysql-8.0.13-winx64\data
+max_connections=200
+max_connect_errors=10
+character-set-server=utf8
+default-storage-engine=INNODB
+[mysql]
+default-character-set=utf8
+[client]
+port=3306
+
+
+
+mysqld --initialize --console	获取初始密码
+mysqld --install		添加到服务器
+net start mysql			运行数据库
+mysql -u root -p		进入数据库
+ALTER USER  'root'@'localhost' IDENTIFIED BY '123456';		修改密码
+
+show databases;
+
+use masql
+create table users(
+id integer primary key,
+accountID varchar(20),
+accountPWD varchar(20));
+
+use masql
+create table bookList(
+id integer primary key,
+bookISBN integer);
+
+use masql
+create table bookInfo(
+ISBN integer primary key,
+name varchar(20),
+author varchar(30),
+publisher varchar(50));

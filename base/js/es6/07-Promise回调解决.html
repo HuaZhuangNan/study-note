@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>回调地狱解决方案</title>
+</head>
+<body>
+  <script>
+  // 解决方法 Promise
+
+  // 基本用法
+  var promise = new Promise((resolve,reject)=>{
+
+    // 把异步操作放在这里
+    // 执行顺序 b
+    //$.get("/getUser",res=>{
+      // 告诉外界执行完毕，并且返回res,写在then里面的函数开始执行
+      // 执行顺序 c
+      //resolve(res);
+      resolve("res");
+    //});
+  }); 
+  // 执行顺序 a
+  promise.then(res=>{
+    // 执行顺序 d
+    console.log(res);//打印获取值
+  });
+
+
+  // 把异步操作封装在一个Promise对象中实现多层回调
+  function fn(){
+    return new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        console.log('你好！');
+        // 异步逻辑就结束了
+        // 这里就可以告诉外界执行其他操作
+        // 让外界得知执行结束
+        resolve();
+      },1000);
+    });
+  }
+  // 调用执行
+  // fn();
+  // 存在问题，并不知道这个异步操作结束，解决：
+  fn().then(res=>{
+    // 执行到下一步
+    console.log("下一步");
+  });
+
+
+  // 实例 
+  function f1(){
+    return new Promise((resolve,reject)=>{
+      console.log('第一步');
+      // 让外界得知执行结束
+      resolve();
+    });
+  };
+  function f2(){
+    return new Promise((resolve,reject)=>{
+      console.log('第二步');
+      // 让外界得知执行结束
+      resolve();
+    });
+  };
+  f1().then(res=>{
+    // 返回一个promise对象
+    return f2();
+  }).then(res =>{
+    return f1();
+  }).then(res=>{
+     console.log("完成");
+  });
+  /*
+    第一步
+    第二步
+    第一步
+    完成
+  */
+  // 简单封装
+  function getBooks(){
+    // 执行 resolve() 异步处理成功的
+    // 执行 reject() 异步处理失败的
+    return new Promise((resolve,reject)=>{
+        $.ajax({
+          url: "/getBooks",
+          success(res){
+            // 成功
+            resolve(res);
+          },
+          error(resError){
+            // 失败
+            // 通过reject函数错误回调
+            reject(resError);
+          }
+        });
+    })
+  };
+  // Promise 错误捕获、处理 
+
+  getBooks().then(res=>{
+    // 成功
+      console.log(res);
+  },resError=>{
+    // 出错
+    console.log(resErro);
+  })/*.catch(resErro=>{
+    // 也可以捕捉错误 更加推荐 因为可以捕获更多错误
+    // 1. reject传递的参数错误
+    // 2. 成功的回调发生的错误
+  })*/
+  
+  // 多层异步使用catch
+  console.log("多层异步使用catch");
+  new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      console.log("第一步");
+      resolve("第一步完成");
+    },100)
+  }).then(res=>{
+    return new Promise((resolve,reject)=>{
+      console.log(res); // res: 第一步完成
+      setTimeout(()=>{
+        console.log("第二步");
+        reject("第二步失败");
+      },100)
+    })
+  }).catch(res=>{
+    console.log(res);
+  });
+
+  </script>
+</body>
+</html>

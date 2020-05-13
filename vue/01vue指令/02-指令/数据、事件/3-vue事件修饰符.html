@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue事件</title>
+  <style>
+    body {
+      font-size: 62.5%;  /* 10px = 1rem */
+    }
+   .box {
+     width: 100%;
+     height: 5rem;
+     margin: 1rem;
+     background-color: darkcyan;
+   }
+  </style>
+  <!-- 1. 导包 -->
+  <script src="../../../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 都可以没有表达式可以多个连用-->
+
+    <!-- .prevent 阻止默认行为 -->
+    <a href="https://baidu.com" @click.prevent="link">跳转到百度</a>
+
+    <div class="box" @click="box">
+      <!-- .stop 阻止事件冒泡(小到大的触发机制) -->
+      <button @click.stop="btn" >点击</button>
+      <!-- 两个连用 -->
+      <a href="https://baidu.com" @click.stop.prevent="link">跳转到百度</a>
+    </div>
+
+    <!-- .capture 事件捕获(大到小的触发机制)机制触发事件 -->
+    <div class="box" @click.capture="box">
+      <button @click.stop="btn" >点击</button>
+    </div>
+
+    <!-- 只有绑定本身触发才发生事件,就如禁止了本身的冒泡和捕获一样 -->
+    <div class="box" @click.self="box">
+      <button @click.stop="btn" >点击</button>
+    </div>
+    
+    <!-- 只阻止一次默认行为 -->
+    <a href="https://baidu.com" @click.prevent.once="link">跳转到百度</a>
+  </div>
+  <script>
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        
+      },
+      methods: {
+        link(){
+          console.log("a点击事件触发了");
+        },
+        box(){
+          console.log("div点击事件触发了");
+        },
+        btn(){
+          console.log("btn点击事件触发了");
+        }
+
+      }
+
+    })
+  </script>
+</body>
+</html>

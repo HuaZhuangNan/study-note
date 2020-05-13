@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+  <!-- this.$http.jsonp -->
+  <script src="../vue-resource-1.3.4.js"></script>
+  <!-- 官网： https://github.com/pagekit/vue-resource -->
+  <!-- 教程：https://github.com/pagekit/vue-resource/blob/develop/docs/http.md -->
+</head>
+<body>
+  <div id="app">
+    <button @click="getInfo">获取Get请求数据</button>
+    <button @click="postInfo">获取post请求数据</button>
+    <button @click="jsonpInfo">获取jsonp请求数据</button>
+  </div>
+  <script>
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        
+      },
+      methods: {
+        getInfo(){
+          // Vue.http.get('/someUrl', [config]).then(successCallback, errorCallback(可选));
+          this.$http.get("http://jsonplaceholder.typicode.com/users").then(result=>{
+            console.log(result.body);//等价于 console.log(result.data);不推荐
+          })
+        },
+        postInfo(){
+          //this.$http.post('/someUrl', [body], [config]).then(successCallback, errorCallback)
+          // 开启 application/x-www-form-urlencodedf 配置
+          this.$http.post("http://jsonplaceholder.typicode.com/users",{},{emulateJSON:true})
+          .then(result=>{
+            console.log(result)
+          })
+        },
+        jsonpInfo(){
+          this.$http.jsonp("http://jsonplaceholder.typicode.com/users",{emulateJSON:true})
+          .then(result=>{
+            console.log(result)
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>

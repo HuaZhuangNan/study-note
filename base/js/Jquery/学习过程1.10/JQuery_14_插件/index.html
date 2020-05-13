@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="zh-cmn-Hans"><!-- 简体中文 -->
+<head>
+  <meta  http-equiv="Content-type" content="text/html;charset=utf-8" />
+  <!-- 标签中的“IE=edge”会让IE8之后的版本也用它们的标准模式显示网页。 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>jQuery-14《插件》</title>
+  <meta name="keywords" content="jQuery-1" />
+  <meta name="description" content="提供最新的前端咨询" />
+  <meta name="author" content="陌轩恒" />
+  <!-- 移动端 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <!-- IOS图标 -->
+  <link rel="apple-touch-icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <script type="text/javascript" src="js/jquery-1.10.1.js" charset="utf-8"></script>
+  <!-- 表单插件 -->
+  <script type="text/javascript" src="js/jquery.validate.js" charset="utf-8"></script>
+  <!-- 语言包 -->
+  <script type="text/javascript" src="js/jquery.validate.messages_zh.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/index.js" charset="utf-8"></script>
+</head>
+<body>
+  <div id="nav">
+    <ul>
+    	<li>导航1
+    		<ul class="nav-down">
+    			<li>下拉1</li>
+    			<li>下拉2</li>
+    			<li>下拉3</li>
+    		</ul>
+    	</li>
+    	<li>导航2
+    		<ul class="nav-down">
+    			<li>下拉1</li>
+    			<li>下拉2</li>
+    			<li>下拉3</li>
+    		</ul>
+    	</li>
+    	<li>导航3
+    		<ul class="nav-down">
+    			<li>下拉1</li>
+    			<li>下拉2</li>
+    			<li>下拉3</li>
+    		</ul>
+    	</li>
+    </ul>
+  </div>
+  <form id="login" name="login" >
+    <label>昵称</label>
+    <input name="user" class="required" minlength="2" type="text" autocomplete="off"><br/> 
+    <label>密码</label>
+    <input name="pass" type="password"  autocomplete="off"><br/>
+    <label>邮件</label>
+    <input name="email" class="email" type="text"  autocomplete="off"><br/>
+    <label>网址</label>
+    <input class="url" name="url" type="text" autocomplete="off"><br/>
+    <input type="submit" name="sub" value="提交"><br/>
+  </form>
+</body>
+</html>

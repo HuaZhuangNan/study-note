@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+#report {
+  background-color: #fff;
+  padding-top: 10px;
+}
+#report textarea {
+  resize: none; 
+}
+#report input[type="file"] {
+  display: none;
+}
+#report button[type="submit"] {
+  margin-right: 18px;
+}

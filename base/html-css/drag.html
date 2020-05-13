@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>拖拽</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function allowDrop(ev)
+    {
+      ev.preventDefault(); // 禁用默认行为
+    }
+
+    function drag(ev)
+    {
+      ev.dataTransfer.setData("Text",ev.target.id);
+    }
+
+    function drop(ev)
+    {
+      ev.preventDefault();
+      var data=ev.dataTransfer.getData("Text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+    </script>
+    <div id="div1" ondrop="drop(event)"
+    ondragover="allowDrop(event)"></div>
+    <img id="drag1" src="img_logo.gif" draggable="true"
+    ondragstart="drag(event)" width="336" height="69" />
+</body>
+</html>

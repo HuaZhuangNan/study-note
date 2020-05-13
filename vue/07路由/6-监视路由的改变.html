@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+  <script src="../vue-router-3.0.2.js"></script>
+  <style>
+  /* 路由选择样式 */
+  .router-link-active {
+    color: red;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 20px;
+    text-decoration: underline;
+    background-color: aquamarine;
+  }
+  .v-enter,
+  .v-leave-to {
+    opacity: 0;
+    transform: translateX(140px);
+  }
+  .v-enter-active,
+  .v-enter-active {
+    transition: all 1s ease;
+  }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <a href="#/login">登录</a>
+    <a href="#/reg">注册</a>
+    <br/>
+    <!-- 等价于 router-link 渲染一个标签 默认渲染 a标签 都会绑定一个事件 -->
+    <router-link to="/login">登录</router-link>
+    <router-link to="/reg" tag="span">注册</router-link>
+    <!--  把路由组件容器 放在Vue的动画容器中-->
+    <transition mode="out-in">
+      <router-view></router-view>
+    </transition>
+  </div>
+  <template id="login">
+    <div>
+      <h3>这是 login 组件</h3>
+    </div>
+  </template>
+  <template id="register">
+      <div>
+        <h3>这是 register 组件</h3>
+      </div>
+    </template>
+  <script>
+    // 2.创建组件模板对象
+    var loginModule = {
+      template: "#login"
+    }
+    var registerModule = {
+      template: "#register"
+    }
+    // 3.创建路由对象 
+    var router = new VueRouter({
+      /// routes 路由匹配规则
+      // 都是对象 path 监听路由链接  component 表示路由匹配到的组件
+      routes: [
+        { path: '/', redirect: '/login' }, // 路径重定向
+        { path: '/login', component: loginModule },
+        { path: '/reg', component: registerModule }
+      ],
+      // linkActiveClass: 'myactive' //指定路由的选定样式 class 名 
+    })
+
+    // 4. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        
+      },
+      methods: {
+        
+      },
+      router, // 4.1 绑定路由规则对象
+      watch: { // 监视路由
+        '$route.path' : function (newVal,oldVal) {
+          console.log(newVal+"------"+oldVal);  
+        }
+      },
+    })
+  </script>
+</body>
+</html> 

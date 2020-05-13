@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+.v-info-header {
+    padding: 0;
+    height: 62px;
+    line-height: 62px;
+    background-color: #ffffff; 
+}
+.v-header-left {
+    border-bottom: 1px solid #cccccc;
+}
+.v-info-header-logo {
+    height: 48px;
+    width: 48px;
+    margin-top: -2px;
+    margin-right: 6px;
+}
+.v-info-header-title {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0;
+    line-height: 62px;
+}
+#downloadExcel {
+    margin-top: 15px;
+}
+.v-header-right {
+    line-height: 1.4;
+    padding: 10px !important;
+}
+.v-header-dropwown{
+    border-radius: 0px;
+}
+.v-info-body {
+    padding: 0;
+    height: 100%;
+    margin-top: 52px;
+    margin-bottom: -115px;
+    background-color: #ffffff;
+    border-top: 1px solid #00cec9;
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: 768px) { 
+    body {
+        background-color: #ecf0f1;
+    }
+    .v-info-header-logo {
+        margin-right: 10px;
+    }
+    .v-header-left {
+        text-align:left;
+        border-bottom: none;
+    }
+    .v-header-right {
+        padding-top: 15px !important;
+        border-bottom: none; 
+    }
+    .v-info-header-title {
+        font-size: 18px;
+    }
+    .v-info-body {
+        margin-top: 0px;
+    }
+
+}

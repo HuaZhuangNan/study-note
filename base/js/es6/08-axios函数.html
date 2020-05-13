@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Axios</title>
+</head>
+<body>
+  <script>
+    // es8 axios 前后端都可以使用 是用Promise封装的
+    axios.get("/getUser").then(res=>{
+      return axios.get("/getUserDetail");
+    }).get("/getLoginInfo").then(res=>{
+      console.log(res);
+    }).catch((err) => {
+      
+    });
+    // fetch 新浏览器自带用Promise封装的axios
+
+    // then 里面可以直接 return res 数据
+  </script>
+</body>
+</html>

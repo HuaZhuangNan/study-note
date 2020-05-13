@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-model指令,双向数据绑定</title>
+  <!-- 1. 导包 -->
+  <script src="../../../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h4 v-text="msg"></h4>
+    <!-- v-bind 单项数据绑定 从 M 自动绑定到 V 无法实现数据的双向绑定（M改变出现V改变） -->
+    <input type="text" v-bind:value="msg" style="width:100%" />
+    <!-- (仅限表单元素)使用 v-model 可以实现双向绑定 M <-> V 双向数据绑定 （不管那边改变都会出现改变）-->
+    <input type="text" v-model="msg2" style="width:100%" />
+  </div>
+  <script>
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        msg: "单项数据绑定信息！",
+        msg2: "双向数据绑定信息！"
+      },
+      methods: {
+        
+      }
+    })
+    console.log(vm1.$el);
+  </script>
+</body>
+</html>

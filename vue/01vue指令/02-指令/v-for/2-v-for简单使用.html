@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-for简单使用</title>
+  <script src="../../../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <label>ID: 
+        <input type="text" name="id" v-model="id">
+    </label>
+    <label>Name: 
+        <input type="text" name="name" v-model="name">
+    </label>
+    <input type="button" value="添加" @click="add">
+    <p v-for="item in list" :key="item.id"> <!-- 按 v-bind绑定 item.id 排序 -->
+      <input type="checkbox" >{{ item.id }} --- {{ item.name }}
+    </p>
+  </div>
+  <script>
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+          id: '',
+          name: '',
+          list: [
+          { id: 1,name: '陌轩' },
+          { id: 2,name: '轩痕' },
+          { id: 3,name: '可以哦' }
+        ]
+        
+      },
+      methods: {
+        add(){
+          let re = false;
+          if(/^[0-9]+$/.test(this.id) && this.name)  // ID必须是数据
+            re = this.list.find(value => {
+              return this.id == value.id ; //&& this.name === value.name ID 不可以重复
+            });
+          else console.log("表单错误!");
+
+          if(re){
+            console.log("用户ID存在!");
+          }else if( re === undefined){
+            this.list.push({ id: this.id, name: this.name });
+          }
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>

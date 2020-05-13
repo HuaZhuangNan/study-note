@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery</title>
+</head>
+<body>
+  <div>55</div>
+  <div class="two">66</div>
+  <div id="three">55</div>
+  <script>
+
+    // jQuery 3. 版本模仿
+    (global=>{
+      
+      const jQuery = (selector)=> new jQuery.fn.init(selector) ;
+      const events = [
+        // {ele:div,type:click,callback}
+        // {ele:div,type:kewdown,callback}
+      ];//存放绑定事件
+      jQuery.fn = jQuery.prototype = {
+        constructor: jQuery,
+        // 构造函数
+        init:function(selector){  // 放入dom 元素
+        // ... 运算符将NodeList类似数组的对象转换成数组，，不转也可以
+          let elements = [...document.querySelectorAll(selector)] || 0; // 防错
+          for(let i=0;i<elements.length;i++){
+            this[i] = elements[i];
+          }
+          this.length = elements.length;
+        },
+        extend(...args){   // 插件入口
+          //console.log(this==jQuery);
+          let target;
+          if(this === jQuery && args.length != 1){
+            // $.extend
+            target = args[0];
+            args.splice(0,1);//删除第一个元素
+          }else {
+            // $.fn.extend
+            // $.extend 参数=1
+            target = this;
+          }
+          // 所有对象复制到第一个对象里面
+          Object.assign(target,...args);// es6 对象拷贝 相同覆盖 浅拷贝
+          // 原始类型会被包装，null 和 undefined 会被忽略。
+          return target;
+        }
+
+      }
+      // init 继承 jQuery.prototype
+      jQuery.fn.init.prototype = jQuery.fn;
+      // 对象合并拷贝 ,插件入口
+      jQuery.extend = jQuery.fn.extend;
+
+      // 工具调用 $.xxx
+      jQuery.extend({
+        each(obj,callback){
+          // 遍历数组和对象
+          if( (length in obj) && (obj.length >= 0)){  // 表示obj中有 length属性
+            // 数组,伪数组
+            // [1,3,6,9]  , {0:"a",1:"b",2:"c",length:3}
+            for(let i=0;i<obj.length;i++){
+              //callback(i,obj[i]);
+              // this 重构指向 i
+              callback.call(obj[i],i,obj[i]);
+              // 等价于 callback.apply(obj[i],[i,obj[i]])
+              // callback.bind(obj[i])(i,obj[i]);// 调用才会立即执行
+            }
+          }else {
+            for(i in obj){
+              // callback(i,obj[i]);
+              callback.call(obj[i],i,obj[i]);
+            }
+          }
+        },
+        type(data){
+          // 判断类型 "[object Number]" 、[object Array] ...等等
+          let type = Object.prototype.toString.call(data);
+          //return type;
+          return type.replace(/\[ocject |\]/g,"").toLowerCase();
+          // /^\s+\S|\s/ig
+        },
+        ajax(...args){
+          console.log("ajax方法");
+        },
+        post(...args){
+          console.log("post方法");
+        },
+        get(){
+
+        }
+
+      });
+
+      // dom方法 $().xxx()
+      jQuery.fn.extend({
+        each(callback){
+          jQuery.each(this,callback);
+        },
+        css(...args){
+          if(args != undefined && args.length >=1 && args.length <=2){
+            let name = args[0];
+            if(args.length == 1 && jQuery.type(args) ==="string" ){
+              if(this.length == 1 ){
+                return this[0].style[name];
+              }
+              let arr = [];
+              for (let i = 0; i < this.length; i++){
+                arr.push(this[i].style[name]);
+              }
+              return arr;
+            }else if(jQuery.type(args) === "object"){
+                // 设置多个样式
+                this.each(function(index,elemts){
+                    elemts.style = args;
+                })
+            }else{
+              let value = args[1];
+              this.each(function(index,elemts){
+                elemts.style[name] = value;
+              })
+              // for (let i = 0; i < this.length; i++){
+              //   this[i].style[name]= value;
+              // }
+              return this;
+            }
+          }
+        },
+        show(){
+          this.each(function(index,elemts){
+            elemts.style.display = "block";
+          })
+        },
+        hide(){
+          this.each(function(index,elemts){
+            elemts.style.display = "none";
+          })
+        },
+        html(value,type="innerHTML"){
+          if(value == undefined){
+            for (let i = 0; i < this.length; i++){
+              return this[i][type];
+            }
+          }
+          this.each(function(index,elemts){
+            elemts[type] = value;
+          })
+          // for (let i = 0; i < this.length; i++){
+          //   this[i][type] = value;
+          // }
+          return this;
+        },
+        text(value){
+          //跨浏览器获取innerText过滤HTMl标签
+          if(typeof this[0].textContent == "string"){
+            this.html(value,"textContent");
+          }else {
+            this.html(value,"innerText");
+          }
+          return this;
+        },
+        attr(){
+
+        },
+        // 事件
+        on(type,callback){
+          this.each(function(index,element){
+            element.addEventListener(type,callback);
+            // 绑定时把回调函数地址存起来 
+            // 格式 {ele:div,type:click,callback} 
+            events.push({ele:element,type,callback}) // es6 简写
+          });
+        },
+        // 解除绑定
+        off(type){
+          this.each(function(index,element){
+            let evts = events.filter(function(evetObj){
+              // 是否是该元素绑定的这个类型事件
+              return evetObj.ele === element && evetObj.type === type;
+            });
+            evts.forEach(function(evt){
+              element.removeEventListener(type,evt.callback);
+            })
+          }) 
+        }
+
+      })
+      // 变量指定
+      global.$ = global.jQuery = jQuery;
+      
+    })(window);
+
+    //  1.对象复制 $.extend
+    var p = {a:8};
+    $.extend(p,{a:10,run(params){
+      console.log("p对象的run方法");
+    }},{b:20})
+    console.log("P对象a的值：",p.a);
+    p.run();
+    // 2.插件编写接口  $.fn.extend
+    $.fn.extend({new(ss){
+      console.log(ss);
+    }})
+    console.log(jQuery.fn.init.prototype);
+    $("div").new(`new的参数打印`);
+    $.post();
+
+    // 3. each方法的实现
+    function eachTest(index,value){
+      console.log(index,value,this);
+    }
+    $.each([1,2,5],eachTest)
+    // 伪数组
+    $.each({0:"kk",1:"5p",2:3,length:3},eachTest)
+    // 普通对象
+    $.each({name:"陌沫",length:-1},eachTest);
+    // $().each()
+    $("div").each(function(index,elemts){
+      console.log(index,elemts);
+      elemts.innerHTML = "999";
+    });
+    // 4. css方法设置、获取样式
+    console.log("css方法测试！");
+    $("div").css("color","red");
+    $("div.two").css({"color":"blue","background":"#666"});
+    var divArr = $("div#three").css("color");
+    console.log(divArr);
+    console.log($("div").css("color"));
+    //const div1 = document.getElementById("three");
+    //console.log(div1.style["color"]);
+    // 5. html 文本
+    var twoHtml = $("div.two").html();
+    console.log(twoHtml);
+    $("div#three").html("<i>333歪了</i>");
+    $("div.two").text("<i>222没歪</i>");
+
+    // 6. type 类型
+    var typeTest = $.type(()=>{});
+    console.log(typeTest);
+
+    // 7. 测试on方法
+    $("div.two").on("click",function(e){
+      console.log(this,e);
+      // 获取点击元素相当于this
+      console.log(e.target);
+    })
+  </script>
+</body>
+</html>

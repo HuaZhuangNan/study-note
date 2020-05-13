@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue的基本使用</title>
+  <!-- 1. 导入Vue2.4包 -->
+  <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+  <!-- 将来new的vue的实例会控制所有内容  就是MVVM中 V层 -->
+  <div id="app">
+    {{ msg }}
+  </div>
+  <script>
+    // 2. 创建一个 Vue 的实例
+    // 当我们导入包后就多了一个Vue的构造函数
+    // 注意： new的vm对象 就是MVVM中 VM层
+    var vm = new Vue({
+      el: '#app', // 表示当前我们 vue 的这个实例，要控制页面上的那个区域
+      data: {  // data 属性中，存放的是 el 中的数据 就是MVVM中 M层用来保存数据的
+        msg: 'Hello World!' 
+        // 不建议直接手动操作DOM元素
+      }
+    });
+  </script>
+</body>
+</html>

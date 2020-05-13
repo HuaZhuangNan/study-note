@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>报名系统后台登陆</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/base.css">
+    <link rel="stylesheet" href="./css/v-login.css">
+</head>
+<body>
+    <section class=" v-login ">
+        <header class="v-login-header">
+            <img class="img-circle" src="../img/top.png">
+            <h1>报名系统后台登陆</h1>
+        </header>
+        <div class="v-login-body">
+            <div class="form-group">
+                <label for="username">账户名：</label>
+                <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="username">密码：</label>
+                <input type="password" class="form-control" id="password" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+                <label for="code">验证码：</label>
+                <div>
+                    <input type="text" class="form-control v-input-vode" id="code" placeholder="请输入验证码">
+                    <img id="codeimg" class="v-code-img" src="../img/top.png">
+                </div>
+            </div>
+        </div>
+        <div class="v-login-footer">
+            <button id="sub" class="btn btn-default v-login-sub" type="button">登录</button>
+        </div>
+    </section>
+    <script src="../lib/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="./js/v-login.js" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+
+<!--[if gt IE 8]><!-->
+<html lang="zh-cmn-Hans"><!-- 简体中文 -->
+<!--<![endif]-->
+<head>
+  <meta  http-equiv="Content-type" content="text/html;charset=utf-8" />
+  <!-- 标签中的“IE=edge”会让IE8之后的版本也用它们的标准模式显示网页。 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>blog博客前端</title>
+  <meta name="keywords" content="blog博客前端" />
+  <meta name="description" content="提供最新的前端咨询" />
+  <meta name="author" content="陌轩恒" />
+  <!-- 移动端 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+  <!--
+  手机页面 
+  <link rel="alternate" media="only screen and(max-width: 640px)" href="https://m.jb51.net/css/577798.html" />
+  <meta http-equiv="mobile-agent" content="format=html5; url=https://m.jb51.net/css/577798.html" />
+  <meta http-equiv="mobile-agent" content="format=xhtml; url=https://m.jb51.net/css/577798.html" /> 
+  -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <!-- IOS图标 -->
+  <link rel="apple-touch-icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" type="text/css" href="public/css/min.css" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <script type="text/javascript" src="public/js/event.js" charset="utf-8"></script>
+  <script type="text/javascript" src="public/js/base.js" charset="utf-8"></script>
+  <script type="text/javascript" src="public/js/tool.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/index.js" charset="utf-8"></script>
+</head>
+<body>
+  <noscript>
+    <p>本页面需要浏览器支持（启用）JavaScript</p>
+  </noscript>
+  <!-- 遮挡层 -->
+  <div id="screen"></div>
+  <!-- /遮挡层 -->
+  <!-- /顶部 -->   
+  <header id="header">
+    <!-- 导航 -->
+    <h1>微轩网盟营</h1>
+  </header>
+  <nav id="nav">
+      	<section class="nav-all">
+          <div class="nav-logo">
+          	<a href="#" title="微轩网盟营" >
+          		<img src="images/logo.png" />
+          	</a>
+          </div>
+          <ul class="nav-info">
+          	<li><a href="" title="首页">首页</a></li>
+          	<li class="drop">
+          		<a href="" title="教程">教程</a>
+          		<div class="drop-menu">
+          			<span class="drop-link">^</span>
+          			<ul>
+          				<li><a href="" title="Windows" target="">Windows</a></li>
+          				<li><a href="" title="安卓" target="">安卓</a></li>
+          			</ul> 
+          		</div>
+          	</li>
+          	<li class="drop">
+          		<a href="" title="软件" >软件</a>
+          		<div class="drop-menu">
+                <span class="drop-link">^</span>
+          			<ul>
+          				<li><a href="" title="Windows" target="">Windows</a></li>
+          				<li><a href="" title="安卓" target="">安 卓</a></li>
+          			</ul> 
+          		</div>
+          	</li>
+          	<li><a href="http://dh.wxwmy.cn" title="微轩导航" target="-blank">微轩导航</a></li>
+          	<li><a href="http://v.wxwmy.cn" title="微轩影视" target="-blank">微轩影视</a></li>
+          	<li><a href="http://m.wxwmy.cn" title="微轩音乐" target="-blank">微轩音乐</a></li>
+          </ul>
+          <div class="nav-right">
+            <aside class="nav-tool">
+            	<div class="nav-search">
+            		<form id="seachInfo">
+            			<input id="seach" type="text" name="seach" placeholder="请输入搜索的内容" autocomplete="off">
+            			<button type="button" id="seach-sub">搜索</button>
+            		</form>
+            	</div>
+            </aside>
+            <div class="nav-user f-left">
+            	<div>
+            		<a class="nav-login" href="javascript:;" title="">登录</a>
+            		|&nbsp;<a class="nav-reg" href="javascript:;" title="">注册</a>
+            	</div>
+              <!-- Ajax来加载(隐藏) -->
+            	<div class="nav-member drop">
+            			<a href="?" title="个人中心">个人中心</a>
+            			<div class="drop-menu">
+            			<div class="drop-link">^</div>
+            				<ul class="">
+            					<li><a href="" title="换肤" target="">换肤</a></li>
+            					<li><a href="" title="退出" target="">退出</a></li>
+            				</ul> 
+            			</div>
+            	</div>
+              <!-- /Ajax来加载 -->
+            </div>
+          </div>
+        </section> 
+      </nav>
+      <!-- /导航 -->
+  <!-- /顶部 -->
+  <!-- 滑块导航 -->
+  <div id = "slider-nav">
+    <ul class="about">
+    	<li><a href="?"></a></li>
+    	<li><a href=""></a></li>
+    	<li><a href=""></a></li>
+    	<li><a href=""></a></li>
+    	<li><a href=""></a></li>
+    </ul>
+  	<ul class="black">
+  		<li>首页</li>
+  		<li>博文列表</li>
+  		<li>精彩相册</li>
+  		<li>动感音乐</li>
+  		<li>关于我</li>
+  	</ul>
+    <div class="nav-bg">
+      <ul class="white">
+      	<li>首页</li>
+      	<li>博文列表</li>
+      	<li>精彩相册</li>
+      	<li>动感音乐</li>
+      	<li>关于我</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /滑块导航 -->
+  <!-- 主体 -->
+  <section id="main">
+    <!-- 轮播器 -->
+    <aside  class="main-banner">
+    	<a href="" ><img src="images/banner1.jpg" alt="轮播器第一张"></a>
+    	<a href="" ><img src="images/banner2.jpg" alt="轮播器第二张"></a>
+    	<a href="" ><img src="images/banner3.jpg" alt="轮播器第三张"></a>
+    	<div class="main-banner-bottom"></div><!-- 半透明黑条 -->
+    	<div class="main-banner-info"><a href=""></a></div><!-- 图片说明 -->
+		<ul>
+    		<li class="banner1">●</li>
+    		<li class="banner2">●</li>
+    		<li class="banner3">●</li>
+		</ul>
+    </aside >
+    <!-- /轮播器 -->
+    <!-- 左侧栏一 -->
+    <aside class="main-sidebar">
+      <h2>11</h2>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="border-none">5</li>
+      </ul>
+      <h2>22</h2>
+      <ul>
+      	<li>1</li>
+      	<li>2</li>
+      	<li>3</li>
+      	<li>4</li>
+      	<li class="border-none">5</li>
+      </ul>
+      <h2>33</h2>
+      <ul>
+      	<li>1</li>
+      	<li>2</li>
+      	<li>3</li>
+      	<li>4</li>
+      	<li class="border-none">5</li>
+      </ul>
+    </aside>
+    <!-- /左侧栏一 -->
+    <!-- 主体中间 -->
+    <article class="main-index">
+      <div class="main-index-text">
+        
+      </div>
+      <div class="main-index-photo">
+      	<dl>
+      		<dt><img _src="images/photo1.jpg" bigsrc="images/photo1.jpg" src="" alt="第一张"></dt>
+      		<dd>延迟加载</dd>
+      	</dl>
+      	<dl>
+      		<dt><img _src="images/photo2.jpg" bigsrc="http://img.ivsky.com/img/tupian/pre/201805/30/chuangyi_kapian_sheji-004.jpg" src="" alt="第二张"></dt>
+      		<dd>延迟加载</dd>
+      	</dl>
+      	<dl>
+      		<dt><img _src="images/photo3.jpg" bigsrc="images/photo3.jpg" src="" alt="第三张"></dt>
+      		<dd>延迟加载</dd>
+      	</dl>
+      	<dl>
+      		<dt><img _src="images/photo4.jpg" bigsrc="images/photo4.jpg" src="" alt="第四张"></dt>
+      		<dd>延迟加载</dd>
+      	</dl>
+      	<dl>
+      		<dt><img _src="images/photo5.jpg" bigsrc="images/photo5.jpg" src="" alt="第五张"></dt>
+      		<dd>延迟加载</dd>
+      	</dl>
+      </div>
+    </article>
+    <!-- /主体中间 -->
+    <!-- /右侧栏 -->
+    <aside  class="main-tool">
+
+    </aside >
+    <!-- /右侧栏-->
+  </section>
+  <!-- /主体 -->
+  <!-- 底部 -->
+  <footer>
+
+  </footer>
+  <!-- /底部 -->
+  <!-- 默认不显示辅助元素( fixed 定位) -->
+    <!-- 注册框 -->
+      <form id="reg">
+        <span class="colse">x</span>
+        <h3 class="reg-move">用户注册</h3>
+        <div class="form-div form-divfirst">
+        	<label for="reguser">用户账号</label><input id="reguser" type="text" name="reguser" value="" autofocus="autofocus" autocomplete="off" />
+          <span class="info info-user">请输入用户名,2-20位,由字母、数字、和下划线组成！</span>
+          <span class="error error-user"></span>
+          <span class="succ succ-user"></span>
+        </div>
+        <div class="form-div">
+        	<label for="regpass">用户密码</label>
+          <input id="regpass" type="password" name="regpass" value="" autocomplete="off" />
+          <em class="pass-view">见</em>
+          <span class="info info-pass">
+            <p>安全级别：<b class="b b1">■ </b><b class="b b2">■ </b><b class="b b3">■ </b><b class="b b4"></b></p>
+            <p><b class="q1">○</b> 6-20个字符</p>
+            <p><b class="q2">○</b> 只能包含大小写字母、数字、非空格字符</p>
+            <p><b class="q3">○</b> 大、小写字母、数字、非空字符,2种以上</p>
+          </span>
+          <span class="error error-pass"></span>
+          <span class="succ succ-pass"></span>
+        </div>
+        <div class="form-div">
+        	<label for="notpass">确认密码</label>
+          <input  id="notpass" type="password" name="notpass" value="" autocomplete="off" />
+          <em class="notpass-view">见</em>
+          <span class="info info-notpass">请再次输入密码，以确保密码一致！</span>
+          <span class="error error-notpass"></span>
+          <span class="succ succ-notpass"></span>
+        </div>
+        <div class="ques form-div">
+        	<label for="ques">提示题目</label>
+          <select id="ques" name="ques">
+            <option value="0">--您最喜欢的明星</option>
+            <option value="1">--您最喜欢的菜</option>
+            <option value="2">--您的狗狗的名字</option>
+            <option value="3">--您的出生地</option>
+          </select>
+          <span class="succ"></span>
+        </div>
+        <div class="ans form-div">
+        	<label for="ans">题目回答</label><input  id="ans" type="text" name="ans" value="" autocomplete="off" />
+          <span class="info info-ans">请输入问题答案！</span>
+          <span class="error error-ans"></span>
+          <span class="succ succ-ans"></span>
+        </div>
+        <div class="email form-div">
+        	<label for="email">电子邮件</label><input  id="email" type="text" name="email" value="" autocomplete="off" />
+          <ul class="allmenu all-email">
+            <li><span></span>@qq.com</li>
+            <li><span></span>@163.com</li>
+            <li><span></span>@sohu.com</li>
+            <li><span></span>@sina.com.cn</li>
+            <li><span></span>@gmail.com</li>
+          </ul>
+          <span class="info info-email">请输入电子邮件，由字母、数字、@符号组成！</span>
+          <span class="error error-email"></span>
+          <span class="succ succ-email"></span>
+        </div>
+        <div class="form-div birthday">
+        	<label for="year">出生日期</label>
+            <select id="year"  name="year">
+              <option value="">- 年 -</option>
+            </select>
+            <select name="month" id="month">
+              <option value="">- 月 -</option>
+            </select>
+            <select name="day" id="day">
+              <option value="">- 日 -</option>
+            </select>
+            <span class="succ"></span>
+        </div>
+        <div class="form-div form-divlast ps">
+          <label for="ps">您的备注</label><textarea id="ps" name="ps" value=""></textarea>
+          <span class="info info-ps">您还可以输入<b class="ps-num">200</b>字</span>
+          <span class="error error-ps"><b></b>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="ps-clear">清尾</a></span>
+          <span class="succ succ-ps"></span>
+        </div>
+        <div class="form-sub">
+          <input type="checkbox" id="agr" name="agr" >
+          <label for="agr">勾选已阅读同意<a href="">《用户协议》</a></label>
+        	<button type="button" id="reg-sub">注册</button>
+        </div>
+        <div class="form-other"><a href="">已有账号点击登录</a></div>
+      </form>
+    <!-- /注册框 -->
+    <!-- 登录框 -->
+    <form id="login">
+    	<span class="colse">x</span>
+    	<h3 class="login-move">用户登录</h3>
+    		<div class="user form-div form-divfirst">
+    			<label for="user">账号</label><input type="text"  name="user" value="" autofocus="autofocus" autocomplete="off" />
+          <span class="info">请输入用户名,2-20位,由字母、数字、和下划线组成！</span>
+          <span class="error"></span>
+          <span class="succ"></span>
+        </div>
+    		<div class="form-div form-divlast">
+    			<label for="pass">密码</label><input id="pass" type="password"  name="pass" value="" autocomplete="off" />
+          <em class="pass-view">见</em>
+          <span class="info">请输入密码,2-20位,由字母、数字、和下划线组成！</span>
+          <span class="error"></span>
+          <span class="succ"></span>
+        </div>
+    		<div class="form-sub">
+    			<input type="checkbox" value="1" id="rem" name="rem">
+    			<label for="rem">记住账号</label>
+    			<button id="login-sub" type="button" >登录</button>
+    		</div>
+    		<div class="form-other"><a href="">找回账号或密码</a></div>
+    </form>
+    <!-- /登录框 -->
+    <!-- 百度分享侧栏 -->
+      <div id="share">
+      	<h2>分享到</h2>
+      	<ul>
+      		<li><a href="" class="a">一键分享</a></li>
+      		<li><a href="" class="b">新浪微博</a></li>
+      		<li><a href="" class="c">人人网</a></li>
+      		<li><a href="" class="d">百度相册</a></li>
+      		<li><a href="" class="e">腾讯朋友</a></li>
+      		<li><a href="" class="f">豆瓣网</a></li>
+      		<li><a href="" class="g">百度新首页</a></li>
+      		<li><a href="" class="h">和讯微博</a></li>
+      		<li><a href="" class="i">QQ 空间</a></li>
+      		<li><a href="" class="j">百度搜藏</a></li>
+      		<li><a href="" class="k">腾讯微博</a></li>
+      		<li><a href="" class="l">开心网</a></li>
+      		<li><a href="" class="m">百度贴吧</a></li>
+      		<li><a href="" class="n">搜狐微博</a></li>
+      		<li><a href="" class="o">QQ 好友</a></li>
+      		<li><a href="" class="p">更多...</a></li>
+      	</ul>
+      	<div class="share-footer"><a href="###">百度分享</a><span>分享</span></div>
+      </div>
+    <!-- /百度分享侧栏 -->
+    <!-- 图片预加载 -->
+    <div id="photo-big">
+    	<span class="colse">x</span>
+    	<h3 class="photo-move">&nbsp;图片标题</h3>
+      <div class="photo-big-img">
+      	<img src="images/loading.gif" alt="第一张">
+      </div>
+      <p class="photo-big-index"><span>0/0</span></p>
+      <div class="photo-big-left"></div>
+      <div class="photo-big-right"></div>
+      <div class="photo-big-prev">&lt;</div>
+      <div class="photo-big-next">&gt;</div>
+    </div>
+    <!-- /图片预加载 -->
+    <!-- 返回顶部 -->
+    <div id="go-top"><a href="javascript:;">^</a></div>
+    <!-- 返回顶部 -->
+  <!-- /默认不显示辅助元素 -->
+</body>
+</html>

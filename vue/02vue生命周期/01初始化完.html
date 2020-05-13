@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p id="p1">{{ msg }}</p>
+  </div>
+  <script>
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        msg: "用户添加的数据"
+      },
+      methods: {
+        show(){
+          console.log("执行了show方法!")
+        }
+      },
+      // 周期 1、初始化实例默认的事件等...触发 data .methods 都还没被初始化
+      beforeCreate() {
+        console.log(this.msg);
+      	console.log("表示实例创建之前执行beforeCreate生命周期函数！");
+        try{
+        	this.show();
+        }catch(e){
+        	//TODO handle the exception
+          console.log("show方法出错：",e);
+        }
+      },
+      //  周期 2、data .methods 都还初始化了，可以调用
+      created() {
+      	console.log("这是实例化完成时的created生命周期函数：",this.msg);
+        this.show();
+      },
+      // 周期 3、此时页面都渲染在内存中还没有加载在页面中
+      beforeMount() {
+        console.log(document.getElementById("p1").innerText);
+      },
+      // 周期 4、 这里内存的模板已经放在模板中,用户看到了渲染后的结果
+      mounted(){ 
+         // 实例已经被完全创建好了
+         console.log(document.getElementById("p1").innerText);
+      },
+      // 这里之后事件是 运行中事件 会根据data数据的改变而执行，有可能执行0次
+      // 周期 5
+      beforeUpdate(){
+         // 此时 data 数据是最新的尚未和页面数据保持同步
+      },
+       // 周期 6
+      updated(){
+        // 此时 data 数据是和页面数据保持同步了
+      },
+      // 这里之后事件是 运行中事件 会根据data数据的改变而执行，有可能执行0次
+      beforeDestroy(){
+         // 此时 data 和 methods,以及过滤器...都还可以/用
+      },
+       // 周期 7
+      destroyed(){
+        // 此时都被销毁了
+      }
+
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+
+#main {
+  display: flex;
+  font-size: 1.6rem;
+}
+
+/* 左侧菜单 */
+#main .aside {
+  width: 300px;
+  height: 600px;
+  background-color: pink;
+}
+.aside-item {
+  list-style: none;
+  text-align: center;
+  padding: 30px;
+  border-bottom: 0.2rem solid gray;
+  cursor: pointer;
+}
+
+/* 右侧内容区 */
+#main .content {
+  flex: 1;
+  background-color: lightblue;
+}

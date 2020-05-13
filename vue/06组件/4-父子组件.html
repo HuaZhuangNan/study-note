@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>父子组件</title>
+  <!-- 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 父组件可以在引用子组件，通过v-bind 以属性的的方式给子组件 -->
+    <login :parentmsg="msg" @func="show"></login>
+  </div>
+  <script>
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app', // 节点
+      data: {
+        msg : '父组件的数据'
+      }, // 数据
+      methods: {
+        show(data){
+          console.log("父组件给子组件传递show事件"+data);
+        }
+      }, // 事件
+      filters: {}, // 过滤器
+      directives: {},//指令
+      components: {
+        // 默认 子组件无发=法访问到父组件的属性和方法
+        login: {
+          data: function(){  // 组件的可以用自己的 data 数据，可读可写
+            return {
+              msg : '子组件的数据',
+              count: 0,
+            }
+          },
+          template: '<div><h2>这是一个私有的 login 组件，父组：<span v-text="parentmsg"></span>,子组：<span v-text="msg"></span></h2>\
+            子组件方法：<button type="button" @click="add">加1</button><span v-text="count"></span>\
+            父组件方法：<button type="button" @click="func">父组件</button></div>',
+          props: [   // 把父组件传递过来的属性,只读，无法重新赋值，Vue会警告
+            "parentmsg"
+          ],
+          methods: {
+            add(){
+              this.count++;
+            },
+            func(){
+              // 触发父组件 并且传参
+              this.$emit('func',123);
+            }
+          }
+        }
+
+      }, //私有的组件
+      
+
+      // 生命周期
+      beforeCreate(){}, // data event 还未初始化
+      created(){}, // data event 初始化完成
+      beforeMount(){}, // 模板渲染之前
+      mounten(){}, // 模板更新时
+      updated(){}, // 数据更新时
+      beforeDestroy(){}, //实例销毁前
+      destroyed(){} // 实例销毁时
+
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+// 1. 变量 '-' '_' 都可以建议统一下
+
+$primary-color: #1269b5;
+
+$primary-border: 1px solid $primary-color;
+
+div.box {
+  background: $primary-color;
+}
+h1.page-header {
+  border: 1px solid $primary-color;
+}
+
+// 2. 嵌套
+
+// & 的符号会引用父选择器
+
+.nav {
+  height: 100px;
+  ul {
+    margin: 0;
+    li {
+      padding: 5px;
+      a {  
+        text-decoration: none;
+        &:hover {  // .nav ul li a:hover
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+// 属性嵌套
+body {
+  font: {
+    family: Arial,"宋体";
+    size: 15px;
+    weight: normal;
+  }
+}
+.nav {
+  border: 1px solid #000 {
+    left:0;
+    right: 0;
+  }
+}
+
+// 3. mixin 重复的样式，同函数一样 
+// 可以有参数的
+@mixin alert($text-color, $background) {
+  color: $text-color;
+  background-color: $background;
+  a {
+    color:darken($text-color, 10%);  // 加深百分之10
+  }
+}
+.alert-warning {
+  @include alert(#8a6d3b, #fcf8e3);
+}
+.alert-info {
+  @include alert(
+    $background: green,
+    $text-color: #000);
+}
+
+// 4. 继承
+.alert {
+  padding: 15px;
+}
+
+.alert a{
+  font-weight: bold;
+}
+
+.alert-primary {
+  @extend .alert;
+  background-color:#666;
+}
+// 注释
+
+//  Alt+Shift+A 多行
+/*  */
+
+// Ctrl + /  单行
+
+
+
+

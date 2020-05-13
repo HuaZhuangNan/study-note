@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name" >对话模拟</string>
+    <string name="input_hint">请输入内容</string>
+    <string name="btn_send">发送</string>
+</resources>

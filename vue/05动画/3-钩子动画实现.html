@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>钩子动画实现</title>
+  <script src="../vue-2.4.0.js"></script>
+  <style>
+    .ball {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button type="button" @click="flag=!flag">动起来</button>
+     <!-- 1.使用 transition 元素标签把小球包裹起来 -->
+    <transition 
+      @before-enter="beforEnter"
+      @enter="enter"
+      @after-enter="afterEvent">
+      <div class="ball" v-show="flag"></div>````````
+    </transition>
+    <!-- 1.使用 transition-group 元素标签把 列表包裹起来 .v-move 和 v-leave-active 配合使用可以实现列表后续的元素 -->
+    <!-- 1.使用 transition-group 添加 appear 属性 tag="ul" 实现页面刚载入时有动画 指定渲染出一个 ul-->
+    <transition-group>
+
+    </transition-group> 
+  </div>
+  <script>
+  new Vue({
+    el: '#app',
+    data: {
+      flag: false
+    },
+    methods: {
+      // 注意动画函数的参数是el
+      // el 就是原生的 DOM 对象
+      beforEnter(el){
+        // 动画入场之前
+        el.style.transform = "translate(0,0)"; //  设置动画起始位置
+      },
+      enter(el,done){
+        // 写了才有动画
+        // 可以强制动画更新
+        el.offsetWidth
+        // 动画完成动画之后的状态之后
+        el.style.transform = "translate(150px,150px)"; //  设置动画结束位置
+        el.style.transition= "all 0.8s ease";
+        // 使用就会消失 其实就是 afterEvent 的引用
+        done();
+      },
+      afterEvent(el){
+        // 动画完成后直接隐藏
+        this.flag = !this.flag;
+      }
+    }
+  })
+  </script>
+</body>
+</html>

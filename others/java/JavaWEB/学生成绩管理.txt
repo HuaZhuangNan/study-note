@@ -1,0 +1,30 @@
+班级成绩管理：
+
+功能：
+	前端：	
+		1. 注册
+		2. 登录确定身份，是否具有添加删除的功能（只有管理员具有添加用户权限功能）
+		3. 展示学生信息表格。可以按成绩、学号排序
+		4. 按名字、学号搜索
+	后端：
+		1.  注册，默认管理员身份以及最高权限不需要注册，但是登录第一次改密码
+		2.  确认登录身份（默认学生只有查询权限）
+		3.  管理员注册权限给予机制
+		4.  反馈前端服务器数据就OK
+页面:
+	1. 登录注册页面  reg.html  + login.html
+	2. 根据服务端数据渲染出数据管理/或者展示页面  StudentsData.html
+	3. 用户管理页面 userEdit.html
+
+后端包类:	
+	1.  服务 Servlet
+		1.  RegServlet.java + LoginServlet.java
+		2.  AcceptServlet.java
+	2. 数据 Db
+		1. SQLBase.java
+		2. Sytudents.java 
+	3. 规范 Bean
+		1. StudentBean.java
+数据库：
+	学生成绩表	studentCJ.db
+	学生信息表	studentInfo.db

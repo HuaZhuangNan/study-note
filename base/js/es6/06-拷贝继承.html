@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>拷贝继承</title>
+</head>
+<body>
+  <script>
+    // #浅拷贝-->克隆一个新对象出来
+    console.log("浅拷贝-->克隆一个新对象出来");
+  
+    // ##方法一 'Object.assign' 
+    console.log("方法一 Object.assign");
+
+      var source = {age:18,height:170,className:"3年2班"};
+      var newSource = Object.assign({},source);
+      // +等价于
+      /*```js
+        var newSource2 = {};
+        Object.assign(newSource2,source);
+      ```*/
+      console.log(newSource);
+
+    // ##方法二  '...对象名'
+    console.log("方法二 ...对象名");
+
+      var car = { brand: "BMW",price:"368000",length:"3米"};
+      var newCar = {...car};
+      console.log(newCar);
+
+    // +更改一些属性，追加一些属性
+    console.log("更改一些属性，追加一些属性");
+
+      var newCar2 = {...car,length:"4米",type:"SUV"};
+      var newCar3 = {...source,...newCar2};
+      console.log(newCar2);
+      console.log(newCar3);
+
+    // ##扩展数组 '...数组名' 
+    console.log("扩展数组 ...数组名");
+      var arr = [1,2,3,4,5,7,6];
+      var arr2 = [ ...arr,8,10];
+      var arr3 = [ ...arr,...arr2];
+      console.log(arr2);
+    // 更改,添加值和对象一样...
+  </script>
+</body>
+</html>

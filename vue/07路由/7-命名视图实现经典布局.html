@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>命名视图</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+  <script src="../vue-router-3.0.2.js"></script>
+  <style>
+    html {
+      font-size: 62.5%;
+      padding: 0;
+    }
+    body,h1,h2,h3,h4,h5,h6 { margin: 0 }
+    header.header {
+      width: 100%;
+      height: 8rem;
+      margin-bottom: 1rem;
+      background-color: aquamarine;
+    }
+    section.content {
+      width: 100%;
+      height: 20rem;
+      display: flex;
+      margin-bottom: 1rem;
+      background-color:pink;
+    }
+    aside.content-left {
+      height: 20rem;
+      flex: 2;
+      background-color:rgb(192, 253, 255);
+    }
+    article.content-main {
+      height: 20rem;
+      flex: 8;
+      background-color:rgb(254, 255, 192);
+    }
+    footer.footer {
+      width: 100%;
+      height: 10rem;
+      background-color: rgb(102, 198, 205);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- header -->
+    <router-view></router-view>
+    <!-- boody -->
+    <!-- content、left... 等这是一个值 -->
+    <section class="content">
+      <router-view name="left"></router-view>
+      <router-view name="main"></router-view>
+    </section>
+    <!-- footer -->
+    <router-view name="footer"></router-view>
+  </div>
+  <script> 
+    // 2.创建组件模板对象
+    var headerModule = {
+      template: '<header class="header"><h2>Header 头部组件</h2></header>',
+      
+    }
+    var leftModule = {
+      template: '<aside class="content-left"><h2>Left 侧边栏组件</h2></aside>',
+      
+    }
+    var mainModule = {
+      template:  '<article class="content-main"><h2>Main 主体组件</h2></article>',
+      
+    }
+    var footerModule = {
+      template:  '<footer class="footer"><h2>Footer 底部组件</h2></footer>',
+      
+    }
+    // 3.创建路由对象 
+    var router = new VueRouter({
+      /// routes 路由匹配规则
+      // 都是对象 path 监听路由链接  component 表示路由匹配到的组件
+      routes: [
+        // { path: '/', redirect: '/account' }, // 路径重定向
+        { path: '/', components: {
+            default: headerModule,
+            left: leftModule,
+            main: mainModule,
+            footer: footerModule
+          } 
+        }
+      ],
+      // linkActiveClass: 'myactive' //指定路由的选定样式 class 名 
+    })
+
+    // 4. 创建 Vue 对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        
+      },
+      methods: {
+        
+      },
+      router // 4.1 绑定路由规则对象
+    })
+  </script>
+</body>
+</html> 

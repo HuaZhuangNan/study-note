@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模块化</title>
+</head>
+<body>
+  <script type="module">
+    // 导入 cart 模块，并且获取默认返回值给 cart
+    // 模块路径应该  / 或者 ./ 或者 ../
+    import * as cartIndex from "./cart.js";
+    console.log(cartIndex);
+    /*import cart ,{ age,f1 } from "./cart.js";
+    console.log(cart); === cartIndex.default
+    console.log(cart.name); cartIndex.default.name
+    console.log(age); === cartIndex.age
+    console.log(f1); === cartIndex.f1
+    */
+  </script>
+</body>
+</html>

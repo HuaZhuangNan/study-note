@@ -1,0 +1,18 @@
+@charset:"utf-8";
+
+
+.aa{
+    color:red;
+    font-size: 1em;
+    float:right;
+}
+.bb{
+    color:green;
+    background: #eee;
+    float:left;
+}
+.cc{
+    font-weight: bold;
+    text-decoration:underline;
+}
+

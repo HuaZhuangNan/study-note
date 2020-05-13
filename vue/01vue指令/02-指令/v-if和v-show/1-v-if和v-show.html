@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-if的简单使用</title>
+  <script src="../../../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- v-if 元素变成空注释 -->
+    <p v-if="flag">这是使用v-if控制元素</p>
+    <!-- v-show 隐藏元素 -->
+    <p v-show="flag">这是使用v-show控制元素</p>
+  </div>
+  <script>
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        flag: false
+      },
+      methods: {
+
+      },
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">setting</string>
+    <string name="title">设置</string>
+    <string name="wd">温度范围</string>
+    <string name="w_z">至</string>
+    <string name="sd">湿度范围</string>
+    <string name="gz">光照强度</string>
+    <string name="yy">一氧化碳</string>
+    <string name="bz">保持</string>
+    <string name="rest">重置</string>
+    <string name="qx">取消</string>
+</resources>

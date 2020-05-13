@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="firstname"> + 
+    <input type="text" v-model="lastname"> =
+    <input type="text" v-model="fullname">
+  </div>
+  <script>
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        firstname: '',
+        lastname: '',
+        fullname: ''
+      },
+      methods: {
+        splitname: function(){
+          this.fullname = this.firstname + '-' +this.lastname;
+        }
+      },
+      watch: {  // 这个属性可以监视 data 中指定数据的变化， 然后触发指定的方法
+        firstname: 'splitname',
+        lastname: 'splitname',
+        
+      },
+    })
+  </script>
+</body>
+</html>

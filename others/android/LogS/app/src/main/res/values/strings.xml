@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LogS</string>
+    <string name="right_fragment_text">This is right fragment</string>
+    <string name="another_right_text">This is another right fragment text</string>
+</resources>

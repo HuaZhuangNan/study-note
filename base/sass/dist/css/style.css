@@ -1,0 +1,205 @@
+@charset "UTF-8";
+div.box {
+  background: #1269b5; }
+
+h1.page-header {
+  border: 1px solid #1269b5; }
+
+.nav {
+  height: 100px; }
+  .nav ul {
+    margin: 0; }
+    .nav ul li {
+      padding: 5px; }
+      .nav ul li a {
+        text-decoration: none; }
+        .nav ul li a:hover {
+          text-decoration: underline; }
+
+body {
+  font-family: Arial,"宋体";
+  font-size: 15px;
+  font-weight: normal; }
+
+.nav {
+  border: 1px solid #000;
+    border-left: 0;
+    border-right: 0; }
+
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3; }
+  .alert-warning a {
+    color: #66512c; }
+
+.alert-info {
+  color: #000;
+  background-color: green; }
+  .alert-info a {
+    color: black; }
+
+.alert, .alert-primary {
+  padding: 15px; }
+
+.alert a, .alert-primary a {
+  font-weight: bold; }
+
+.alert-primary {
+  background-color: #666; }
+
+/*  */
+/* 数据类型 
+  type-of(5) type-of(5px) number  
+  type-of(hello) string 
+  type-of(1px solid #555) list
+  type-of(#666)  type-of(rgb(255,255,0) color
+  Map
+  boolean
+*/
+/* number '+ - * /' 运算 最好放在 "()" 里面
+  (5+8)
+  (5px * 6px)
+
+  函数：
+  // 转正数
+  abs(10)  10
+  abs(10px) 10px
+  abs(-10px) 10px
+  四舍五入
+  round(3.5)  4
+  round(3.2)  3
+  进一
+  ceil(3.2)  4
+  退一
+  floor(3.6) 3
+  百分比
+  percentage(650px / 1000px) 65%
+  最小
+  min(1,5,9) 1
+  最大
+  min(1,2) 2
+
+*/
+/*String
+  拼接
+  "Hello" + sass  "Hell sass"
+  "Hello" - sass  "Hell-sass"
+  "Hello" / sass  "Hell/sass"
+
+  函数
+  大小写
+  to-upper-case("Hello") "HELLO"
+  to-lower-case("Hello") "hello"
+  // 长度
+  str-length("hello")  4
+  // 索引
+  str-index("hello sass",hello) 1
+  // 插入
+  str-insert("Hello sass","66",5) "Hello66 sass"
+
+*/
+/* color
+  red
+  #FF0000;
+  rgb(255,0,0)  红、绿、蓝 -> red 
+  rgba(255,0,0,0.5) // 0.5 透明度
+
+  hsl(0,100%,50%) red
+  hsl(60,100%,50%) yellow
+  hsl(60,100%,50%,0.5) rgba(255,0,0,0.5)
+*/
+body {
+  background-color: black; }
+
+button {
+  background-color: #99e7ff; }
+
+button:hover {
+  background-color: #004e66; }
+
+button {
+  background-color: #00c3ff; }
+
+button:hover {
+  background-color: #26afd9; }
+
+button {
+  background-color: #00c3ff; }
+
+button:hover {
+  background-color: rgba(0, 195, 255, 0.7); }
+
+/* list
+
+  length(5px 10px 5px 0)  2
+
+  nth(4px 6px,1)  4px
+
+  index(1px solid red,solid) 2
+
+  append(5px 10px,5px) (5px 10px 5px)
+
+  join(5px 10px,5px 0) (5px 10px 10px 0)
+
+  join(5px 10px.5px 0, comma) (5px,10px,10px,0)
+
+*/
+/* Map
+  length($colors)  2
+  map-get($colors,drak)  #000
+  map-keys($colors)  ("ligth","drak")
+  map-values($colors) ("#fff","#000")
+  map-has-key($colors,ligth) true
+  // 合并
+  map-merge($colors,(ligth-gray:"#666"))          (ligth:"#fff",drak:"#000",ligth-gray:"#666")
+  // 移除
+  map-remove($colors,ligth,drak)
+    (ligth-gray:"#666")
+
+*/
+/*
+  5px >10px false
+  (5px > 4px) and (5px < 6px) true
+  (5px < 4px) or (5px < 6px) true
+  not(5px > 4px) false
+*/
+.alert-info {
+  border: 1px solid #666; }
+
+.rounded {
+  border-radius: 50%; }
+
+.col-1 {
+  width: 25%; }
+
+.col-2 {
+  width: 50%; }
+
+.col-3 {
+  width: 75%; }
+
+.col-4 {
+  width: 100%; }
+
+.col-1 {
+  width: 25%; }
+
+.col-2 {
+  width: 50%; }
+
+.col-3 {
+  width: 75%; }
+
+.item-6 {
+  width: 30px; }
+
+.item-4 {
+  width: 20px; }
+
+.item-2 {
+  width: 10px; }
+
+body {
+  background-color: #fff; }
+
+/*# sourceMappingURL=style.css.map*/

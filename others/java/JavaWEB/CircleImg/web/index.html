@@ -1,0 +1,22 @@
+<!DocType HTML>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <title>圆的图片</title>
+  </head>
+  <body>
+  <form action="./acceptcircle" method="post">
+    <label>圆心坐标X:<input name="x"  min="0" max="300" type="number"></label>
+    <label>圆心坐标Y:<input name="y"  min="0" max="300" type="number"></label>
+    <label>圆的半径：<input name="radius" min="0" max="300" type="number"></label>
+    <label>圆的颜色：<input name="color" type="color"></label>
+    <label>是否填充：
+      <select name="isfill" >
+        <option value="true">是</option>
+        <option value="false">否</option>
+      </select>
+    </label>
+    <button type="submit">提交</button>
+  </form>
+  </body>
+</html>

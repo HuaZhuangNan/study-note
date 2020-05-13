@@ -1,0 +1,25 @@
+#nav >ul{
+  height: 60px;
+  line-height: 60px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  line-height: 60px;
+  background: #000;
+}
+#nav >ul >li{
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  padding: 0;
+  float: left;
+  color: #fff;
+  cursor: pointer;
+}
+#nav >ul >li:hover{
+  background: #666;
+}
+#login {
+  width: 120px;
+  height: 60px;
+}

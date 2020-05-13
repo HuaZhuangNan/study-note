@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="js cssanimations">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>全能VIP音乐在线解析-微轩音乐电台</title>
+  <meta name="keywords" content="网易云音乐解析,网易云VIP解析,VIP音乐解析,VIP视频解析-微轩音乐电台">
+  <meta name="description" content="本站为广大网友提供网易云VIP解析服务，让你省去购买音乐VIP费用，欢迎大家收藏本站，并将它介绍给您的朋友！小康音乐电台提供">
+  <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/amazeui/2.7.1/css/amazeui.flat.min.css">
+  <link href="https://cdn.bootcss.com/aplayer/1.10.0/APlayer.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <!---->
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=65841736" charset="UTF-8"></script>
+  <script  type="text/javascript"  src="index.js"></script>
+  <style type="text/css">
+  object,
+  embed {
+    -webkit-animation-duration: .001s;
+    -webkit-animation-name: playerInserted;
+    -ms-animation-duration: .001s;
+    -ms-animation-name: playerInserted;
+    -o-animation-duration: .001s;
+    -o-animation-name: playerInserted;
+    animation-duration: .001s;
+    animation-name: playerInserted;
+  }
+
+  @-webkit-keyframes playerInserted {
+    from {
+      opacity: 0.99;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-ms-keyframes playerInserted {
+    from {
+      opacity: 0.99;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes playerInserted {
+    from {
+      opacity: 0.99;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes playerInserted {
+    from {
+      opacity: 0.99;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="logo">VIP音乐解析下载</div>
+    <div class="am-form-group am-form-icon search">
+      <i class="am-icon-search" onclick="search();" ></i>
+      <input type="text" placeholder="请输入歌名..." autocomplete="off" class="am-form-field s-input" > 
+      
+    </div>
+     <button type="button" class="am-btn am-btn-secondary" onclick="search();" >搜索</button>
+     <button type="button" class="am-btn am-btn-secondary" style="float:right;" data-am-modal="{target: &#39;#fenxiang&#39;}">分享</button>
+    <div class="am-tabs" style="display:none" data-am-tabs="{noSwipe: 1}">
+      <ul class="am-tabs-nav am-nav am-nav-tabs">
+        <li class="am-active"><a href="http://m.wxwmy.cn/index.html#tab1">单曲</a></li>
+       
+      </ul>
+      <div class="am-tabs-bd am-tabs-bd-ofv">
+        <div class="am-tab-panel am-fade am-in am-active" id="tab1"></div>
+      </div>
+    </div>
+    <br>
+   
+    <div class="am-modal-actions" id="fenxiang">
+      <div class="am-modal-actions-group">
+        <ul class="am-list">
+          <li class="am-modal-actions-header">分享本站给你的朋友</li>
+          <li><a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://m.wxwmy.cn;title=微轩网盟营" target="_blank"><span class="am-icon-share-alt"></span>分享到QQ空间</a></li>
+          <li class="am-modal-actions-danger">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?url=http://m.wxwmy.cn;title=微轩网盟营" target="_blank"><i class="am-icon-qq"></i>分享到QQ</a>
+          </li>
+        </ul>
+      </div>
+      <div class="am-modal-actions-group">
+        <button class="am-btn am-btn-secondary am-btn-block" data-am-modal-close="">取消</button>
+      </div>
+    </div>
+    <div class="am-modal am-modal-alert" tabindex="-1" id="download">
+      <div class="am-modal-dialog">
+        <div class="am-modal-hd">选择音质大小</div>
+        <div class="am-modal-bd download">
+        </div>
+        <div class="am-modal-footer">
+          <span class="am-modal-btn">确定</span>
+        </div>
+      </div>
+    </div>
+    <div class="am-modal am-modal-alert" tabindex="-1" id="qrcode">
+      <div class="am-modal-dialog">
+        <div class="am-modal-hd">扫描二维码下载音乐</div>
+        <div class="am-modal-bd qrcode">
+        </div>
+        <div class="am-modal-footer">
+          <span class="am-modal-btn">确定</span>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <span class="intro-siteinfo">每当对这个世界感到绝望的时候，买一包泡面，然后告诉自己：我们的泡面是有酱包的。 </span>
+      <br>
+      <span>使用方法：输入歌手名称或歌曲名称 然后点击搜索，进行下载。建议在电脑上进行操作。—— <strong>微轩网盟营</strong><br>
+      </span>
+      <div id="APlayerMusic" style="z-index: 999999999;"></div>
+    </footer>
+  </div>
+  <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+  <script src="https://cdn.bootcss.com/aplayer/1.10.0/APlayer.min.js"></script>
+  <script  type="text/javascript"  src="index.js"></script>
+</body>
+
+</html>

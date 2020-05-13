@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SharedPreferences</string>
+    <string name="Button">保存数据</string>
+    <string name="Restore">恢复数据</string>
+</resources>

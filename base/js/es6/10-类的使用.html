@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Class 类</title>
+</head>
+<body>
+  <script>
+    // 原来的
+    function Person(name,age){
+      this.name = name;
+      this.age = age ;
+    }
+    Person.prototype.run=()=>{
+      console.log("构造run方法");
+    }
+    // 创建一个学生类
+    class Student {
+      // 构造方法
+      constructor(name,age){
+        this.name = name;
+        this.age = age;
+      }
+      run(){
+        console.log(`${this.name}运行了run方法,今年20岁！`);
+      }
+    };
+    var s1 = new Student("陌轩痕",20);
+    s1.run();
+
+    // 静态成员
+    // 静态属性  类本身的属性  Animal.type
+    // 静态方法  类本身就有的方法 Animal.tool()
+
+    class Animal {
+      static type  = "哺乳动物";
+      constructor(name){
+        this.name="动物";
+      }
+      static tool(){
+        console.log("工具调用了！");
+      }
+    }
+    console.log(Animal.type);
+    Animal.tool();
+    class Tiger extends Animal {
+      constructor(name,age){
+        // 规定必须调用父类构造方法
+        super(name); 
+        // 从而给予子类name属性
+      }
+    }
+    var small = new Tiger("小虎",15);
+    console.log(small.type);// undefind http://es6.ruanyifeng.com/#docs/class-extends
+    Tiger.tool();
+  </script>
+</body>
+</html>

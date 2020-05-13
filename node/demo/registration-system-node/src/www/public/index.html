@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>报名系统</title>
+    <link rel="stylesheet" href="./lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/base.css">
+    <link rel="stylesheet" href="./css/v-index.css">
+</head>
+<body>
+    <!-- header start -->
+    <header class="container-fluid v-header">
+        <nav class="container  v-nav">
+            <span class="v-brand">
+                <img class="img-circle v-nav-img" alt="报名系统" src="./img/top.png">
+            </span>
+            <span class="v-brand"><h1>报名系统</h1></span>
+            <div class="v-qrcode dropdown ">
+                <button type="button" class="glyphicon glyphicon-qrcode " aria-hidden="true" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><b>二维码分享</b></button>   
+                <img id="qrcodeimg" class="dropdown-menu dropdown-menu-right img-circle" aria-labelledby="dropdownMenu"
+                    alt="报名系统" src="./img/top.png">
+                </img>
+            </div>
+        </nav>
+    </header>
+    <!-- header end -->
+    <!-- section start -->
+    <div id="inputResult" class="container alert alert-success alert-dismissible fade in hidden" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <b></b>
+    </div>
+    <section class="container v-section"> 
+        <div class="form-horizontal center-block">
+            <div class="form-group v-form">
+                <label for="inputName" class="col-xs-3 col-sm-3 control-label  text-right v-label">姓名</label>
+                <div class="col-xs-8 col-sm-6 v-inputdiv">
+                    <input id="inputName" type="text" name="name" class="form-control v-input"  placeholder="请输入姓名"
+                    data-toggle="tooltip" data-placement="top" title="请输入您的中文名字">
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="inputMan" class="col-xs-3 col-sm-3 control-label text-right v-label v-readio-label">性别</label>
+                <div class="col-xs-8 col-sm-7 radio v-inputdiv ">
+                    <label for="inputMan" class="radio-inline">
+                        <input type="radio" class="v-radio" name="sex" id="inputMan" value="man" checked>
+                        <i></i>
+                        <b>男</b>
+                    </label>
+                    <label for="inputWoman" class="radio-inline">
+                        <input type="radio" name="sex" id="inputWoman" value="woman" >
+                        <i></i>
+                        <b>女</b>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="inputPhone" class="col-xs-3 col-sm-3 control-label text-right v-label">手机号</label>
+                <div class="col-xs-8 col-sm-6 v-inputdiv">
+                    <input type="text" name="phone" class="form-control   v-input" id="inputPhone" placeholder="请输入手机号"
+                    data-toggle="tooltip" data-placement="top" title="请输入11位手机号">
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="inputUnit" class="col-xs-3 col-sm-3 control-label  text-right v-label">单位名称</label>
+                <div class="col-xs-8 col-sm-6 v-inputdiv">
+                    <input type="text" name="unit" class="form-control v-input" id="inputUnit" placeholder="请输入单位名称"
+                    data-toggle="tooltip" data-placement="top" title="请输入中文单位名称名字">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="typeOne" class="col-xs-3 col-sm-3 control-label  text-right v-label v-readio-label">类别 </label>
+                <div class="col-xs-8 col-sm-7 v-inputdiv radio">
+                    <label for="typeOne" class="radio-inline">
+                        <input type="radio" name="type" id="typeOne" value="group" checked>
+                        <i></i>
+                        <b>单</b>
+                    </label>
+                    <label for="typeGroup" class="radio-inline">
+                        <input type="radio" name="type" id="typeGroup" value="group" >
+                        <i></i>
+                        <b>团</b>
+                    </label>
+                </div>
+            </div>
+            <div id="formGroup" class="form-group hidden">
+                <label for="inputGroup" class="col-xs-3 col-sm-3 control-label  text-right v-label">团队名称</label>
+                <div class="col-xs-6 col-sm-5 v-inputdiv">
+                    <input type="text" name="group" class="form-control v-input" id="inputGroup" placeholder="请输入团队名称"
+                    data-toggle="tooltip" data-placement="top" title="输入团名一致自动添加同一个团队">
+                </div>
+                <a class="v-find-group" data-toggle="modal" data-target=".seach-group">查找团名</a>
+            </div>
+            <div class="form-group">
+                <label for="inputCode" class="col-xs-3 col-sm-3 control-label  text-right v-label">验证码</label>
+                <div class="col-xs-4 col-sm-4 v-inputdiv">
+                    <input type="text" name="code" class="form-control v-input" id="inputCode" placeholder="请输入验证码"
+                    data-toggle="tooltip" data-placement="top" title="看不清? 点击验证码换一个">
+                </div>
+                <img id="codeimg" src="" alt="验证码" class="col-xs-4 col-sm-2">
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-sm-offset-3">
+                    <button id="btnReset" class="col-xs-4 col-sm-3 btn btn-default v-btn">重 置</button>
+                </div>
+                <div class="col-xs-offset-2 col-sm-offset-3">
+                    <button id="btnSub" data-loading-text="请稍等..." autocomplete="off" class="col-xs-4 col-sm-3 btn btn-default v-btn" >提 交</button>
+                </div>
+            </div>
+        </div> 
+    </section>
+    <!-- section end -->
+    <!-- footer start -->
+    <footer class="container-fluid  v-footer">
+        &copy; 2019 VR参赛组版权所有
+    </footer>
+    <!-- footer end -->
+    <div class="modal fade seach-group" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请先填相关信息</h4>
+                </div>
+                <div id="groupresult" class="alert alert-dismissible fade in container-fluid hidden" role="alert">
+                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <b></b>
+                </div>
+                <div class="modal-body form-horizontal center-block">
+                    <div class="form-group v-form">
+                        <label for="groupName" class="col-xs-3 col-sm-3 control-label  text-right v-label">姓名</label>
+                        <div class="col-xs-8 col-sm-8 v-inputdiv">
+                            <input id="groupName" type="text" name="name" class="form-control v-input"  placeholder="请输入姓名"
+                            data-toggle="tooltip" data-placement="top" title="请输入您的中文名字">
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="groupPhone" class="col-xs-3 col-sm-3 control-label text-right v-label">手机</label>
+                        <div class="col-xs-8 col-sm-8 v-inputdiv">
+                            <input type="text" name="phone" class="form-control   v-input" id="groupPhone" placeholder="请输入手机号"
+                            data-toggle="tooltip" data-placement="top" title="请输入11位手机号">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="groupCode" class="col-xs-3 col-sm-3 control-label  text-right v-label">验证</label>
+                        <div class="col-xs-4 col-sm-4 v-inputdiv">
+                            <input type="text" name="code" class="form-control v-input" id="groupCode" placeholder="验证码"
+                            data-toggle="tooltip" data-placement="top" title="看不清? 点击验证码换一个">
+                        </div>
+                        <img id="groupcodeimg" src="" alt="验证码" class="col-xs-4 col-sm-5">
+                    </div>
+                </div>
+                <div class="modal-footer ">
+                    <button id="groupReset" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="groupSearch" data-loading-text="请稍等..." autocomplete="off" type="button" class="btn btn-info">搜索</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./lib/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="./lib/bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="./js/index.js" charset="utf-8"></script>
+</body>
+</html>

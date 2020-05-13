@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+/* public  最低272px*/
+
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul
+{margin:0;padding:0;outline:none}
+/* Bootstrap去边框 */
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;          
+}
+
+body {
+  background-color: #eee;
+}

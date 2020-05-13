@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta  http-equiv="Content-type" content="text/html;charset=utf-8" />
+  <!-- 标签中的“IE=edge”会让IE8之后的版本也用它们的标准模式显示网页。 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>微轩导航-给你最安全实用的导航</title>
+  <meta name="description" content="微轩导航,专门为广大IT人士设置,提供最优质的,最安全的,最新的导航服务" />
+  <meta name="keywords" content="微轩导航,IT导航,安全网址,实用导航,网址之家,网址导航,上网导航,网址" />
+  <meta name="author" content="陌轩恒" />
+  <!-- 移动端 user-scalable=no -->
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <!-- IOS图标 -->
+  <link rel="apple-touch-icon" href="public/images/logo.png" type="image/png" />
+  <link rel="stylesheet" type="text/css" href="public/Bootstrap@3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <script src="public/JQuery@1.12.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="public/Bootstrap@3.3.7/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+  <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <!-- header start-->
+  <header>
+    <!--pc导航栏-->
+    <nav class="navbar navbar-default container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only"><h1>微轩论坛</h1></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-2" aria-expanded="false">
+        	<span class="glyphicon glyphicon-user"></span>
+        </button>
+        <a class="navbar-brand " href="#">微轩论坛</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-left" id="navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">首页 </a></li>
+          <li><a href="#">文学</a></li>
+          <li><a href="#">生活</a></li>
+          <li><a href="#">影视</a></li>
+          <li><a href="#">音乐</a></li>
+          <li><a href="report.html">发表</a></li>
+         <li class="dropdown visible-sm-block ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-right " name="seach">
+          <div class="input-group ">
+            <input type="text" class="form-control" name="info" placeholder="请输入关键词">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">搜索</button>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-2">
+      	<ul class="nav navbar-nav navbar-right nav-user  ">
+      		<li><a href="" data-toggle="modal" data-target="#login">登录</a></li>
+      		<li><a href="" data-toggle="modal" data-target="#reg" >注册</a></li>
+      	</ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- header end-->
+  <!-- section start -->
+  <section class="container main-box">
+    <aside class="main-left col-lg-3 col-md-3 visible-lg-block visible-md-block pull-left">
+      <!-- 展示菜单 -->
+      <div class="panel-group" role="tablist">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="GroupHeading1">
+            <h4 class="panel-title" role="button" data-toggle="collapse" href="#Group1" aria-expanded="true" aria-controls="Group1">
+             热门文章
+            </h4>
+          </div>
+          <div id="Group1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="GroupHeading1" aria-expanded="true" style="">
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#">第一篇</a></li>
+              <li class="list-group-item"><a href="#">第二篇</a></li>
+              <li class="list-group-item"><a href="#">第三篇</a></li>
+            </ul>
+            <div class="panel-footer">每天更新一点点！</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <main class="main-center col-lg-9 col-md-9 col-sm-12 col-xs-12 pull-left list-group">
+      <!-- 轮播器 -->
+      <div id="main-banner" class="carousel slide" data-ride="carousel">
+        <!-- 轮播指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#main-banner" data-slide-to="0" class="active"></li>
+            <li data-target="#main-banner" data-slide-to="1"></li>
+            <li data-target="#main-banner" data-slide-to="2"></li>
+        </ol>   
+        <!-- 轮播项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="images/banner1.jpg" alt="First slide">
+                <div class="carousel-caption">
+                  <h4>第一张</h4>
+                  <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/banner2.jpg" alt="Second slide">
+                <div class="carousel-caption">
+                  <h4>第二张</h4>
+                  <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/banner3.jpg" alt="Third slide">
+                <div class="carousel-caption">
+                  <h4>第三张</h4>
+                  <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播导航 -->
+        <a class="left carousel-control" href="#main-banner" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">上一个</span>
+        </a>
+        <a class="right carousel-control" href="#main-banner" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">下一个</span>
+        </a>
+      </div>
+      <!-- /轮播器 -->
+      <!-- 内容 -->
+      <article class="main main-info list-group-item" >
+        <!-- <span class="badge">14</span> -->
+        <div class="media">
+          <div class="media-left media-middle">
+            <a href="text.html">
+              <img class="media-object"  alt="图片" src="images/banner2.jpg">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><a href="#">Middle aligned media</a></h4>
+            <p>第一段Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <p class="hidden-xs">第二段Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          </div>
+        </div>
+      </article>
+      <div class="text-center col-sm-12">
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="active"><a href="#" >1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><span>...</span></li>
+            <li><a href="#">98</a></li>
+            <li><a href="#">99</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+    
+    <!-- 工具栏 -->
+    <aside class="main-right">
+       <div class="glyphicon glyphicon-pencil"></div>
+       <div class="glyphicon glyphicon-qrcode"></div>
+       <div class="glyphicon glyphicon-chevron-up " title="返回顶部"></div>
+    </aside>
+  </section>
+  <!-- section end -->
+  <!-- 登录框 -->
+  <div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mylogin">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="mylogin">登录</h4>
+        </div>
+        <div class="modal-body">
+          <form name="login">
+            <div class="form-group">
+              <label for="username">账号：</label>
+              <input type="text" class="form-control" id="username" placeholder="账号">
+            </div>
+            <div class="form-group">
+              <label for="userpass">密码：</label>
+              <input type="password" class="form-control" id="userpass" placeholder="密码">
+            </div>
+            <button type="button" id="loginbutton"  class="form-control btn btn-default " data-loading-text="请稍等...."   data-succ-text="登录成功" autocomplete="off">登 录</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          没有账号？<a href="javascript:;">点击注册</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 注册 -->
+  <div id="reg" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myreg">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myreg">注册</h4>
+        </div>
+        <div class="modal-body">
+          <form name="reg">
+            <div class="form-group">
+              <label for="name">账号：</label>
+              <input type="text" class="form-control" id="name" placeholder="账号">
+            </div>
+            <div class="form-group">
+              <label for="pass">密码：</label>
+              <input type="password" class="form-control" id="pass" placeholder="密码">
+            </div>
+            <div class="form-group">
+              <label for="qrpass">确认密码：</label>
+              <input type="password" class="form-control" id="qrpass" placeholder="确认密码">
+            </div>
+            <button type="button" id="regbutton"  class="form-control btn btn-default " data-loading-text="请稍等...."   data-succ-text="注册成功" autocomplete="off">注 册</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          已有账号？<a href="javascript:;">点击登录</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer start -->
+  <footer >
+    <div class="container">
+      <ul>
+       <li><a href="#" target="_blank">关于微轩 </a></li>
+       <li>| <a href="#" target="_blank">广告服务</a></li>
+       <li>| <a href="#" target="_blank">隐私和版权</a></li>
+       <li>| <a href="#" target="_blank">侵权投诉</a></li>
+       </ul>
+      <p>CopyRight &copy; 2017 - 2018 <a href="#">微轩论坛</a> 版权所有</p>
+    </div>
+    
+    
+  </footer>
+  <!-- footer end -->
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "randomcode",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "svg-captcha": "^1.4.0"
+  }
+}

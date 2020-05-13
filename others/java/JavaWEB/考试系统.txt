@@ -1,0 +1,106 @@
+功能需求：
+	教师功能需求：注册、登录、安排考场（设置考试信息）、生成考卷、查看成绩
+	学生功能需求：注册、登录、进入考场考试、查看个人成绩、修改个人信息
+	管理员需求：登录、对教师、学生信息进行审核、修改账号信息
+	系统功能：随机生成试卷、自动阅卷计分
+数据库：
+		试题表（题库）一科一表 ： 题号、题目、选择答案、标准答案
+		学生表：学号、姓名、密码、班级、语言
+		教师表：工号、姓名、密码、权限、语言
+		管理员：账号、密码、语言、网站名、是否关闭网站
+		考场表：序号、时间、题目信息、时长、考试班级
+		分数表：学号、考场序号、分数
+界面：
+	登录注册 login.html+register.html
+	错误页面：401.html 无权限，404.html 页面不存在
+	登录后展示页面：{
+		学生：成绩分析 index.html 信息管理 info.html 答题考试页面 test.html
+		教师：班级成绩分析 index.html 信息管理 info.html  学生管理 student.html 生成考卷考场信息  test.html
+		管理员：专业成绩分析 index.html 信息管理 info.html 学生管理 student.html 教师管理 teacher.html 网站设置 setting.html
+	}
+交互：
+	基础：
+		请求：{
+			基础：time-时间
+			登录：username-姓名？number-工号-学号、passworld-密码、code-验证码
+			注册：{
+				number-学号、工号
+				username-姓名
+				passwolrd-密码
+				code-验证码
+				身份：identity-学生/老师
+					学生：classes-班级
+			}
+			查询：{
+				number 学号/工号/adming +cookies+类型：type: {
+									基础：mack-成绩/info-信息
+									教师：student-学生信息
+									管理员：student-学生信息 teacher-学生信息
+									}
+			}
+			修改：{
+				number 学号/工号/adming +cookies+类型：type: {
+									管理员：auditing-审核老师注册/setting 网站/info信息
+									教师：auditing-审核学生注册/info
+									学生：info-信息/test-考试答题
+									}
+				
+			}
+
+		}
+		后台响应：{
+			基础： {
+  				status: 200/401/404,
+  				statusText: "OK"/"NO POWER"/"NO PAGE",
+  				data: {}
+			}
+			登录-注册：{  data：路由表+token或者错误 }    服务类  login-register
+			查询：{
+				data {
+					基础：mack-成绩/info-信息
+					教师：student-学生信息
+					管理员：student-学生信息 teacher-学生信息
+				}
+			}
+			修改：{
+				data: {
+					管理员：auditing-审核老师注册/setting 网站/info信息
+					教师：auditing-审核学生注册/info
+					学生：info-信息/test-考试答题
+				}
+				
+			}
+			
+		}
+
+后端包类:	
+	1.  服务 Servlet
+		1.  RegServlet.java
+		2.  LoginServlet.java
+		3.  CodeServlet.java
+		4.  AcceptServlet.java
+		5.  DataServlet.java
+	2. 数据 Db
+		1. SQLBase.java
+		2. Sytudent.java
+		3. Theacher.java
+		4. Setting.java
+	3. 规范 Bean
+		1. StudentBean.java
+		2. TheacherBean.java
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

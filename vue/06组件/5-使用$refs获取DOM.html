@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button type="button" @click="getElement">获取</button>
+    <h3 id="myh3" ref="myh3"> 这个可以用 $refs 获取</h3>
+    <!-- ref 也可以引用模板 -->
+  </div>
+  <script>
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        
+      },
+      methods: {
+        getElement() {
+          console.log(this.$refs.myh3)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

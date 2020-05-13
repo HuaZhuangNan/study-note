@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>简易计算机</title>
+  <script src="../../../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+      <input type="text" v-model="n1" autocomplete="off"/><!-- 静止历史操作 -->
+      <!-- 符号 -->
+      <select v-model="sign">
+        <option value="+"> + </option>
+        <option value="-"> - </option>
+        <option value="*"> * </option>
+        <option value="/"> / </option>
+      </select>
+      <input type="text" v-model="n2" autocomplete="off"/>
+      <!-- 计算按钮 -->
+      <button @click="calc">计算</button>
+      <!-- 结果输出 -->
+      <span v-text="bear" ></span>
+  </div>
+  <script>
+  var vm1 = new Vue({
+    el: '#app',
+    data: {
+      n1: '',
+      sign: '+',
+      n2: '',
+      bear: ''
+    },
+    methods: {
+      calc(){
+        // 计算按钮函数
+        // // 1. 匹配运算符
+        // let n1 = parseInt(this.n1);
+        // let n2 = parseInt(this.n2);
+        // switch(this.sign){
+        //   // 2. 进行计算并且赋值计算结果
+        //   case '+': this.bear = n1+n2; break;
+        //   case '-': this.bear = n1-n2; break;
+        //   case '*': this.bear = n1*n2; break;
+        //   case '/': this.bear = n1/n2; break;
+        // }
+        // 方法二  注意：容易造成注入漏洞，尽量少用
+        var codeStr = n1+this.sign+n2;
+        this.bear = eval(codeStr);
+      }
+
+    }
+
+  })
+  </script>
+</body>
+</html>

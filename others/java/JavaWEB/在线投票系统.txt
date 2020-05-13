@@ -1,0 +1,42 @@
+一、功能分析：
+	1.登录注册
+	2.每天投票一次不管投给谁
+
+二、页面：
+	1. 登录注册 index.html 
+	3. 投票页面 vote.html 登录成功才可以进入
+
+三、类包：
+	1.  服务 Servlet
+		1.  RegServlet.java     注册验证
+		2.  LoginServlet.java  登录验证
+		3.  DataServlet.java	请求这个服务就返回投票数据
+		4.  VoteServlet.java   进行票数更改
+	1.  数据 Dao：
+		1. SQLBase.java
+	2. 规范 Bean：
+		1. UserBean.java
+		2. VoteuserBean.java
+	3. 工具 Util：
+		1. ContentDB
+四、数据库
+	用户信息表：user.db 
+		字段：id 标识 int username 名字 string passworld string 密码 isvote  是否投票 boolean  data 投票时间 string
+	被投票用户信息表：voteuser.db
+		字段：id 标识 int votename 名字 string poll 票数 string
+五、具体服务请求
+	注册： post 提交表单 用户名 username 密码 passworld
+	登录： post提交表单  用户名 username 密码 passworld
+	投票： post提交表单  session 判断是否登录
+	获取数据：get方式请求  session 判断是否登录
+六、服务器反馈
+	{
+  	status: 200,
+  	statusText: "OK",
+  	data: {
+    
+  	         }
+	}
+	
+	
+	

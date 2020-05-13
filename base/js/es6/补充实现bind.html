@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>bind实现</title>
+</head>
+<body>
+  <script>
+    //  实现 bind 方法
+    /*
+      1. 放在函数的原型中
+      --> fn.__proto_ (兼容问题)  === fn.prototype
+      --> 所有的函数对象的构造函数都是 Function
+      --> Function 创建了 Function
+      --> Function 创建了 Object
+      --> Function 创建了 fn
+
+    */
+    Function.prototype._bind = function(target){
+      // target表示新函数内部的this值
+      // 利用闭包创建一个内部函数，返回那个所谓的新函数
+      var _this = this;
+      return (function(){
+        // 执行fn里面的逻辑
+        _this.call(target); // 等价于 _this.apply(target);
+      })();
+      // 等价于
+      /*
+      return ()=>{
+      // 执行fn里面的逻辑
+       this.call(target);
+      };
+      */
+    };
+
+    function fn(){
+      console.log("fn函数的this值：" + this);
+    }
+    fn.bind({age:18});
+
+  </script>
+</body>
+</html>

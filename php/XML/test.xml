@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<version>1.0</version>
+	<version>2.0</version>
+	<info>xml解析测试</info>
+
+	<user>
+		<name>微轩痕</name>
+		<url>http://wxwmy.cn</url>
+		<author sex="男">于小沫</author>
+	</user>
+
+	<user>
+		<name>微轩</name>
+		<url>http://m.wxwmy.cn</url>
+		<author sex="女">微轩</author>
+	</user>
+</root>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BroadcastBestPractive</string>
+    <string name="login_account">账号：</string>
+    <string name="login_password">密码：</string>
+    <string name="login_sub">登录</string>
+    <string name="main_button">发送信息</string>
+</resources>

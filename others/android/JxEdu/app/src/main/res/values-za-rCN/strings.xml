@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">江西教育</string>
+    <string name="browser_back">返回首页</string>
+    <string name="browser_name">浏览器名字</string>
+    <string name="main_book">电子书</string>
+    <string name="main_video">视频</string>
+</resources>

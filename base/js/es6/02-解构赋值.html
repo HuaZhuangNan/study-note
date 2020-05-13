@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>解构赋值</title>
+</head>
+<body>
+  <script>
+    var obj = { name:"abc",age:18 };
+    // 用解构赋值方式获取name、age
+    // 属性别名命名，和顺序无关
+    var { name } = obj; // 创建了一个变量name，值 = obj.name
+    console.log(`name的值：${name}`);
+    var obj2 = {gender:"男",age:18,height:180};
+    var { gender,age,height} = obj2;
+    // 创建了一个3个变量
+    console.log(`gender的值：${gender} age的值：${age} height的值：${height}`);
+    
+    // 解构赋值的意义所在
+    function fn(option){
+      let {name,height,age} = option;
+      /* 等价于
+       let name = option.name;
+       let height = option.height;
+       lef age = option.age;
+      */
+    };
+    fn({
+      name: "你好",
+      height: 180,
+      age: 50
+    });
+    // 又一种方法
+    function fn_2({width,height,age}){
+      // ...body
+    };
+    fn_2({
+      width:100,
+      height:188,
+      age:21
+    });
+
+    // 解构赋值的其他用法
+    var obj3 = {name:"陌沫",age:20};
+    // 创建一个新变量： objName,值=obj.name
+    var { name:objName } = obj;
+    // 创建两个新变量
+    var { name:objName2,age:objAge }  = obj;
+
+
+  </script>
+</body>
+</html>

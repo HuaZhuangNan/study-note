@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义类名动画</title>
+  <script src="../vue-2.4.0.js"></script>
+  <style>
+    /* v-enter 【一个时间点】 是元素在进入之前的起始状态，此时还没有开始进入 */
+    /* v-leave-to 【是一个时间点】 是动画离开之后的最终状态 */
+    .btn-h3-enter, 
+    .btn-h3-leave-to { 
+      opacity: 0;
+      transform: translateX(200px);
+    }
+    /* v-enter 【入场时间段】 是元素在进入之前的起始状态，此时还没有开始进入 */
+    /* v-leave-to 【离场动画时间段】是动画离开之后的最终状态 */
+    .btn-h3-enter-active,
+    .btn-h3-leave-active { 
+      transition: all 0.8s ease; 
+    }
+    </style>
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button type="button" @click="flag=!flag">点击切换</button>
+    <!-- 使用 transition (官方)元素，把需要的动画控制元素包裹起来 -->
+    <transition name="btn-h3">
+        <h3 v-if="flag">这是一个h3</h3>
+    </transition>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        flag: false
+      },
+      methods: {
+
+      }
+
+    })
+  </script>
+</body>
+</html>

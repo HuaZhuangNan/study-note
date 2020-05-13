@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件切换</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 切换方案一：只能实现两个页面切换 -->
+    <a href="" @click.prevent="flag=true">登录</a>
+    <a href="" @click.prevent="flag=false">注册</a>
+    <login v-if="flag"></login>
+    <register v-else="flag"></register>
+  </div>
+  <script>
+    // 2.1 创建全局组件
+    Vue.component("login",{
+      template: '<h3>这是登录组件</h3>'
+    })
+    Vue.component("register",{
+      template: '<h3>这是注册组件</h3>'
+    })
+
+    // 2.2 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        flag: true
+      },
+      methods: {
+        
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>style样式</title>
+  <style>
+    html {
+      font-size: 62.5%;
+    }
+  </style>
+  <script src="../../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 直接书写方式 键值含有 “-” 要加引号-->
+    <h1 :style="{color:'red','letter-spacing': '0.5rem'}" >直接书写方式</h1>
+    <!-- 调用方式 -->
+    <h1 :style="[h1Style,h1Style2]" >调用方式</h1>
+    <!-- 多调用方式 -->
+  </div>
+  <script>
+   var vm1 = new Vue({
+     el: '#app',
+     data: {
+       h1Style: {color:'blue','letter-spacing': '0.5rem'},
+       h1Style2: { 'font-style': 'italic' }
+     },
+     methods: {
+
+     }
+
+   })
+  </script>
+</body>
+</html>

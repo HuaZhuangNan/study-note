@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>过滤器</title>
+  <!-- 1. 导包 -->
+  <script src="../../vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{ msg | magFormat("疯狂","66") | test("+1") }}</p>
+  </div>
+  <script>
+    //定义一个全局过滤器获取内容替换
+    Vue.filter('magFormat',function(msg,arg,arg2){
+      return msg.replace(/单纯/g,arg+arg2)
+    })
+    Vue.filter('test',function(msg,arg){
+      return msg.replace(/66/g,arg)
+    })
+
+    // 2. 创建对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        msg: "曾经的我是多么单纯，单纯的我，傻傻的问我自己，我是谁？"
+      },
+      methods: {
+        
+      }
+    })
+    
+// 过滤器的定义语法，第一个参数永远都是过滤器管道符前面传过来的参数
+// 在双花括号中或者v-bind中
+// Vue.filter('过滤器名称',function(data){});
+  </script>
+</body>
+</html>

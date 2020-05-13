@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RecycleListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:id="@+id/main_body">
+
+    <Button
+        android:id="@+id/main_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:background="#00cec9"
+        android:focusable="true"
+        android:text="@string/main_video"
+        android:textColor="#fff"
+        android:textSize="60sp" />
+    <Button
+        android:id="@+id/main_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#0984e3"
+        android:text="@string/main_book"
+        android:textSize="60sp"
+        android:textColor="#fff"
+        android:focusable="true" />
+</RecycleListView>

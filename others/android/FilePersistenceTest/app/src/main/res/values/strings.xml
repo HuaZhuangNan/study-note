@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FilePersistenceTest</string>
+    <string name="main_edit_hint">输入点东西。。。</string>
+</resources>

@@ -1,0 +1,52 @@
+@charset 'utf-8';
+
+/* （平板，大于等于 768px 的屏幕） */
+@media (min-width: 768px) {
+    /* header start  */ 
+    .v-nav {
+        padding-left: 6px;
+        padding-right: 18px;
+    }
+    .v-qrcode b{
+        padding-top: 20px;
+        margin-right: -40px;
+    }
+    /* section start  */
+    .v-section {
+        margin: auto;
+        min-height: 630px;
+        padding: 6% 10px 10px;
+        height: 86%;
+        border: 1px solid #e7e7e7;
+        border-top: none;
+    }
+    .v-label, .v-input {
+        height: 42px;
+        font-size: 16px;
+        line-height: 32px;
+    }
+    label b {
+        font-size: 15px;
+    }
+    .form-horizontal .radio-inline , .form-horizontal .radio {
+        padding-top: 5px;
+    }
+    #codeimg {
+        height: 42px;
+        line-height: 42px;
+    }
+    .v-find-group  {
+        line-height: 42px;
+        margin-left: 10px;
+    }
+    .v-btn {
+        margin-top: 20px;
+        height: 42px;
+        font-size: 16px;
+    }
+    /* footer start  */
+    .v-footer {
+        padding-top: 1.55%;
+        height: 66px;
+    }
+}

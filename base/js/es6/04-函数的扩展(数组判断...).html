@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数的扩展</title>
+</head>
+<body>
+  <script>
+  function fn(){
+    // arguments 是函数里面的一个局部变量 是传递参数的个数
+    console.log(arguments.length);
+    console.log(arguments[0]);
+  }
+  fn(1,3,5); // 3 1
+  fn(2,4,6,7,8) // 5 2
+
+  // es6 箭头函数不能使用 arguments
+  // 为了这个弥补这个问题 rest 参数就产生了
+
+  // ..args 就是rest参数
+  // --> 产生了一个变量，这个变量是一个数组，这个数组里包含传过来的所有参数
+  function q(...args){
+    console.log(`args是是不是数组:${args instanceof Array}`);
+    console.log(`args是是不是数组:${Object.prototype.toString.call(args) === "[object Array]" }`);
+    console.log(`args是是不是数组es5:${Array.isArray(args)}`);
+    console.log(`arg的参数:${args}`);
+  };
+  q(1,2,3);
+  q(2,5,6);
+
+  // typeof 只能判断 ： 数字 字符串  布尔值 undefined 函数
+  // Object.prototype.toString.call()
+    /* 
+      1. 5 '[object Number]' 
+      2. "abc" '[object String]'
+      3. true '[object Boolean]'
+      4. null '[object Null]'
+      5. undefined '[object Undefined]'
+      6. [1,2,3] '[object Array]'
+      7. function (){} '[object Function]'
+      8. new Date '[object Date]'
+      9. /abc/ '[object RegExp]'
+    */
+    // Array.isArray() es5 提出的
+    // isNaN 表示不是数字
+    // isInfinity() 表示是不是无穷
+
+    // global 和 window 的区别
+    /*
+     global是es中全局作用域中的根对象
+      1. nodejs里面global全是表示全局变量的载体
+      2. 浏览器js里面,全局变量都放在window中，浏览器中没有global对象
+    */
+</script>
+</body>
+</html>

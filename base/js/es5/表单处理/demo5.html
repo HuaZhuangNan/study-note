@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta  http-equiv="Content-type" content="text/html;charset=utf-8">
+    <title>表单处理</title>
+    <link rel="stylesheet" type="text/css" href="demo5.css">
+    <script type="text/javascript" src="base.js" charset="utf-8"></script>
+    <script type="text/javascript" src="demo5.js" charset="utf-8"></script>
+</head>
+<body>
+    <form id="myForm" name="yourForm" >
+        <label for="city">城市：</label>
+        <select name="city" multiple="multiple"><!-- 可以多选 -->
+            <option value="sh">上海</option>
+            <option value="nj">南京</option>
+            <option value="nc" selected="selected">南昌</option><!-- 默认选项 -->
+            <option>无</option>
+        </select>
+         <select name="info" multiple="multiple"><!-- 可以多选 -->
+            <option>无</option>
+        </select>
+    </form>
+</body>
+</html>

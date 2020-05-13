@@ -1,0 +1,97 @@
+<!--
+ * @Description: 
+ * @version: 1.0.0
+ * @Author: 花妆男(HuaZhuangNan)
+ * @Github: https://github.com/HuaZhuangNan
+ * @Date: 2019-08-25 01:17:53
+ * @LastEditors: 花妆男(HuaZhuangNan)
+ * @LastEditTime: 2019-12-17 11:46:11
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理员登陆</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/bootstrap-table-1.15.4-dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../lib/base.css">
+    <link rel="stylesheet" href="./css/v-info.css">
+</head>
+<body>
+    <header class="container-fluid v-info-header">
+        <div class="col-xs-12 col-sm-5 col-sm-offset-1 v-header-left">
+            <img src="../img/top.png" class="img-circle v-info-header-logo">
+            <h1 class=" v-info-header-title" >后台管理</h1>
+            <button id="downloadExcel" type="button" class="pull-right btn btn-default col-xs-3 col-sm-4 col-md-3">导出Excel</button>
+        </div>
+        <div class="input-group col-xs-12 col-sm-5 col-md-4 v-header-right">
+            <input type="text" class="form-control" aria-label="Text input with segmented button dropdown">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle v-header-dropwown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span>选择</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+                <button type="button" class="btn btn-default">搜索</button>
+            </div>
+        </div>
+    </header>
+    <section class="col-xs-12 col-sm-12 table-responsive v-info-body"> 
+        <table id="tableToExce" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <script src="../lib/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../lib/bootstrap-table-1.15.4-dist/bootstrap-table.min.js"></script>
+    <script src="../lib/bootstrap-table-1.15.4-dist/bootstrap-table-zh-CN.min.js" charset="utf-8" ></script>
+    <script src="./js/v-info.js" charset="utf-8"></script>
+</body>
+</html>

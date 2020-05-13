@@ -1,0 +1,14 @@
+
+$colors: (light:#fff,drak:#000);
+
+@function color($key){
+  @if not map-has-key($colors,$key){
+    @error "你需要的#{$key}不在$colors中!";
+    // 警告 @warn 
+  }
+  @return map-get($colors,$key);
+}
+
+body {
+  background-color: color(light);
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>模板字符串</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <script>
+    // 摸版字符串
+
+    // a、基本用法
+    var s1 = `hello`;
+    var s2 = `world`;
+    // b、字符串操作痛点
+    // 1、模板字符串的拼接
+    var s3 = `a${s1}b${s2}`; // 减少错误几率
+    // 2、字符串换行
+    var s4 = `
+      <div>
+        <h1>你好呀世界！</h1>
+        <p>${s1}</p>
+        <p>${s2}</p>
+        <p>${s3}</p>
+      </div>
+      `;
+    document.write(s4);
+  </script>
+</body>
+
+</html>

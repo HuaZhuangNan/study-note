@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>认识async</title>
+</head>
+<body>
+  <script>
+    // es8 async是Promise的语法糖
+    function f1(){
+      return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+          resolve("你好");
+        },500);
+      })
+    }
+    (async ()=>{
+      // 表示await这一步是一个异步操作
+      const res = await f1(); 
+      // 下面代码在异步之后执行
+      console.log("第二步！",res);
+      const res2 = await f1();
+      console.log("第三步！",res2);
+    })();
+    console.log("第一步");
+
+    // 错误处理
+    // try{}cath{}
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+@charset:"utf-8";
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    font-family: "宋体","黑体";
+}
+/*CSS禁止调出输入法 就只可以输入 英文和的了 谷歌和一些浏览器无效*/
+.nokey{
+    ime-mode: disabled;
+}
+

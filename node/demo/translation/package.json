@@ -1,0 +1,13 @@
+{
+  "name": "translation",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/main.js"
+  },
+  "dependencies": {
+    "gm": "^1.23.1",
+    "tesseract.js": "^2.0.2"
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>跑马灯实现</title>
+  <!-- 1.导包 -->
+  <script src="../../../vue-2.4.0.js"></script>
+</head>
+<body>
+  <!-- 2.创建控制区 -->
+  <div id="app">
+    <button @click="run" >浪起来！</button>
+    <button @click="stop" >别浪！</button>
+    <h4 v-text="msg"></h4>
+  </div>
+  <script>
+    //  3. new对象 
+    // this 表示当前vue实例
+    // this.msg 属性
+    // this.stop 方法
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: "猥琐发育别浪，要稳住哦！",
+        intervalId: null // 在data定义方法之间就可以访问了
+      },
+      // 分析事件
+      methods: {
+        run() {
+          console.log("动起来！");
+          // 判断定时器是否存在
+          if(this.intervalId !=null) return;
+          // 1.使用定时器
+          // 箭头函数没有作用域所以this还是指向vue实例
+          this.intervalId = setInterval(()=>{
+            // 2.截取开头字符
+            let start = this.msg.substring(0,1);
+            // 3.截取后面所有字符
+            let end = this.msg.substring(1);
+            // 4.重新拼接直接赋值
+            this.msg = end + start;
+            // PS： 会自动监听data中数据的变更自动更新数据
+
+          },400)
+
+        },
+        stop(){ // 停止定时器
+          console.log("停下来");
+          if(this.intervalId !=null) {
+            clearInterval(this.intervalId);
+            this.intervalId = null;
+          }
+        }
+
+      }
+
+    })
+  </script>
+</body>
+</html>

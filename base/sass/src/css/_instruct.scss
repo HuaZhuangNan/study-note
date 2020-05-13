@@ -1,0 +1,45 @@
+
+// 控制指令
+
+
+// 判断
+
+$use-prefixes: false;
+
+.rounded {
+  @if $use-prefixes {
+    -webkit-border-radius: 50%;
+  }@else {
+    border-radius: 50%;
+  }
+}
+
+// for while 循环 
+
+@for $j from 1 through 4 {  // 1-4
+  .col-#{$j} {
+    width: 100%  / 4 * $j;
+  }
+}
+@for $j from 1 to 4 {  // 1-3
+  .col-#{$j} {
+    width: 100%  / 4 * $j;
+  }
+}
+
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} {
+    width: 5px * $i;
+  }
+  $i: $i - 2;
+}
+
+// 处理列表数据
+
+$imgs: success error warning;
+
+@each $img in $imgs {
+  //background-image: url(../images/icons/#{$icon}.png)
+}
+

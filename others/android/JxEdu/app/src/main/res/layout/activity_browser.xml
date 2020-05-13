@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/browser_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:hardwareAccelerated="true">
+    </WebView>
+
+    <Button
+        android:id="@+id/browser_back"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:background="#0984e3"
+        android:text="@string/browser_back"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:focusable="true"/>
+
+</LinearLayout>

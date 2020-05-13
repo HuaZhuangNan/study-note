@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>路由器的嵌套</title>
+  <!-- 1. 导包 -->
+  <script src="../vue-2.4.0.js"></script>
+  <script src="../vue-router-3.0.2.js"></script>
+  <style>
+  </style>
+</head>
+<body>
+  <div id="app">
+    <router-link to="/account">Account</router-link>
+    <router-view></router-view>
+  </div>
+  <template id="account">
+    <div>
+      <h1>这是 Account 组件</h1>
+
+      <router-link to="/account/login">登录</router-link>
+      <router-link to="/account/reg">注册</router-link>
+      <router-view></router-view>
+    </div>
+  </template>
+  <script>
+    // 2.创建组件模板对象
+    var accountModule = {
+      template: "#account",
+      
+    }
+    var loginModule = {
+      template: '<h2>登录组件</h2>',
+      
+    }
+    var registerModule = {
+      template:  '<h2>注册组件</h2>',
+      
+    }
+    // 3.创建路由对象 
+    var routerObj = new VueRouter({
+      /// routes 路由匹配规则
+      // 都是对象 path 监听路由链接  component 表示路由匹配到的组件
+      routes: [
+        // { path: '/', redirect: '/account' }, // 路径重定向
+        { path: '/account', 
+          component: accountModule,
+          children: [  // 子组件 path 前面不要加 ”/“ 否则是以根路径来请求
+            { path: 'login', component: loginModule },
+            { path: 'reg', component: registerModule }
+          ]
+        }
+        
+      ],
+      // linkActiveClass: 'myactive' //指定路由的选定样式 class 名 
+    })
+
+    // 4. 创建 Vue 对象
+    var vm1 = new Vue({
+      el: '#app',
+      data: {
+        
+      },
+      methods: {
+        
+      },
+      router: routerObj // 4.1 绑定路由规则对象
+    })
+  </script>
+</body>
+</html> 
