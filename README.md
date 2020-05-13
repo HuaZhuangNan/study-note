@@ -15,6 +15,8 @@
 
 - [php](./php/readme.md)
 
+- [sql](./srl/readme.md)
+
 - [node](./node/readme.md)
 
 - [vue](./vue/readme.md)

@@ -1,21 +1,23 @@
 # Web 基础
 
-## [HTML+CSS](./html-css/readme.md)
+## [html+css](./html-css/readme.md)
 
-## [ES5](./js/es5/readme.md)
+## [es5](./js/es5/readme.md)
 
-## [HTTP协议](./agreement/readme.md)
+## [http协议](./agreement/readme.md)
 
-## [JQUERY](./jquery/readme.md)
+## [jquery](./jquery/readme.md)
 
-## [ES6](./js/es6/readme.md)
+## [es6](./js/es6/readme.md)
 
-## [LESS](./sass/readme.md)
+## [less](./sass/readme.md)
 
-## [SASS](./sass/readme.md)
+## [sass](./sass/readme.md)
 
-## [DNS](./js/es6/readme.md)
+## [dns](./js/es6/readme.md)
 
-## [NGINX](./nginx/readme.md)
+## [linux](./linux/readme.md)
 
-## [TS](./ts/readme.md)
+## [nginx](./nginx/readme.md)
+
+## [ts](./ts/readme.md)

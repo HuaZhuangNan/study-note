@@ -1,0 +1,40 @@
+/*
+	书上页数：38
+  最后修改时间：2018年10月13日17:21:03
+*/
+Create DataBase 数据库名
+ON Primary
+	(
+	--主要数据文件
+		Name='_data',
+		FileName=_data.mdf,/*目录*/
+		Size=,
+		--MaxSize=,
+		FileGrowth=/*增长速度*/
+	),
+	(
+	--次要数据文件
+		Name='_data2',
+		FileName=_data.ndf,
+		Size=,
+		--MaxSize=,
+		FileGrowth=
+	)
+LOG ON
+	(
+	--主要数据文件
+		Name='_log',
+		FileName=_log.ldf,
+		Size=,
+		MaxSize=,
+		FileGrowth=
+	),
+	(
+	--次要数据文件
+		Name='_log2',
+		FileName=_log2.ldf,
+		Size=,
+		MaxSize=,
+		FileGrowth=
+	)
+GO

@@ -1,0 +1,21 @@
+// 安装完先建立bin目录的环境量
+mongod.cfg 配置文件 mongod --dbpath D:\SQL\MongoDB\Server\4.2\data   log.....
+安装 MongoDB服务
+通过执行mongod.exe，使用--install选项来安装服务，使用--config选项来指定之前创建的配置文件。
+mongod --config "D:\SQL\MongoDB\Server\4.2\bin\mongod.cfg" --install
+
+
+show dbs;		//查看所有数据库
+use 数据库名;	 //进入特定数据库
+show collections;	//查看当前数据库下有哪些集合
+db;	//查看当前数据库
+
+db.test.find();   // 查询test库所有数据
+db.test.save(对象);  // 添加数据，MongoDB会默认创建一个_id 作为唯一标识
+db.test.insert(对象);  // 插入数据
+db.test.remove(条件对象); // 条件匹配就会删除
+db.test.update({匹配对象},{$set:{修改后的对象}});  // 更新数据
+
+
+// 更多百度、菜鸟教程......
+

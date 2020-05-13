@@ -1,0 +1,110 @@
+打开目录  D:
+  cd D:\MySQL\mysql-8.0.15-winx64\bin
+设置(用户)环境变量 Path
+  ;D:\MySQL\mysql-8.0.15-winx64\bin
+设置文件的内容(mysql-config.ini)放安装根目录
+
+  #basedir=D:\MySQL8.0
+  #basedir=D:\MySQL8.0\data
+ [mysqld]
+ # 设置3306端口
+ port=3306
+ # 设置mysql的安装目录
+ basedir=D:\\MySQL8.0   # 切记此处一定要用双斜杠\\，单斜杠我这里会出错，不过看别人的教程，有的是单斜杠。自己尝试吧
+ # 设置mysql数据库的数据的存放目录
+ datadir=E:\\software\\mysql\\mysql-8.0.11-winx64\\Data   # 此处同上
+ # 允许最大连接数
+ max_connections=200
+ # 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统
+ max_connect_errors=10
+ # 服务端使用的字符集默认为UTF8
+ character-set-server=utf8
+ # 创建新表时将使用的默认存储引擎
+ default-storage-engine=INNODB
+ # 默认使用“mysql_native_password”插件认证
+ default_authentication_plugin=mysql_native_password
+ [mysql]
+ # 设置mysql客户端默认字符集
+ default-character-set=utf8
+ [client]
+ # 设置mysql客户端连接服务端时默认使用的端口
+ port=3306
+ default-character-set=utf8
+
+安装
+  mysqld --initialize --user=root --console   信息 root@localhost: %X6rZM*Vfq=i
+删除服务
+  sc delete MySQL
+添加服务
+  mysqld install MySQL
+启动服务
+  net start mysql  关闭 net stop mysql
+登录
+ mysql -u root -p
+修改密码
+  ALTER USER root@localhost IDENTIFIED  BY 'rootygj';
+
+c: 返回
+exit
+
+建表
+  show databases; 查看系统库
+  use mysql; 进入mysql库
+  show tables; 查看所有表
+use mysql
+create table users(
+id integer primary key,
+accountID varchar(20),
+accountPWD varchar(20));
+
+use mysql
+create table bookList(
+id integer primary key,
+bookISBN integer);
+
+use mysql
+create table bookInfo(
+ISBN integer primary key,
+name varchar(20),
+author varchar(30),
+publisher varchar(50));
+
+查看密码加密方式：
+select user, host, plugin, authentication_string from user;
+
+1.Windows下
+启动服务
+mysqld --console　　
+或　　net start mysql　　
+关闭服务
+mysqladmin -uroot shudown　　
+或　　net stop mysql　　
+
+
+2.Linux下
+
+启动服务
+service mysql start　　　
+关闭服务
+service mysql stop　　
+重启服务
+service restart stop　
+管理员root的host是localhost，代表仅限localhost登录访问。如果要允许开放其他ip登录，则需要添加新的host。如果要允许所有ip访问，可以直接修改成“%”
+
+创建用户：
+CREATE USER 'xxh'@'%' IDENTIFIED WITH mysql_native_password BY 'xxh123!@#';
+
+#(需要注意：mysql8.0加密方式修改了)
+#检查用户
+
+select user, host, plugin, authentication_string from user\G;
+
+授权远程数据库
+
+#授权所有权限
+GRANT ALL PRIVILEGES ON *.* TO 'xxh'@'%'；
+#授权基本的查询修改权限，按需求设置
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER ON *.* TO 'xxh'@'%';
+
+查看用户权限
+show grants for 'xxh'@'%';
