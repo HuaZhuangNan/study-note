@@ -14,7 +14,7 @@
 
 ## [sass](./sass/readme.md)
 
-## [dns](./js/es6/readme.md)
+## [dns](./js/dns/readme.md)
 
 ## [linux](./linux/readme.md)
 

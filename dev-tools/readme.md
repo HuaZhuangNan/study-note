@@ -1,11 +1,11 @@
 # 有关开发的一些开发工具设置
 
-## [安装](./pages/install.md)
+## [安装](./page/install.md)
 
-## [nvm、node、npm、yarn命令](./pages/cmd.md)
+## [nvm、node、npm、yarn命令](./page/cmd.md)
 
-## [package.json 参数](./pages/package.md)
+## [package.json 参数](./page/package.md)
 
-## [editorconfig等一些开发小插件](./pages/plugs.md)
+## [editorconfig等一些开发小插件](./page/plugs.md)
 
-## [webpack4](./pages/webpack.md)
+## [webpack4](./page/webpack.md)
